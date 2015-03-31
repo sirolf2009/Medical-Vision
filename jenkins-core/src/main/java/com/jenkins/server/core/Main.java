@@ -24,7 +24,7 @@ public class Main {
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", ""));
-        System.out.println("dfhdth");
+        System.out.println("lhiasfblhi t");
         System.in.read();
         server.shutdownNow();
     }
