@@ -1,0 +1,52 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TaskService WSDL service -->
+
+  <service name="Task" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://model.core.server.jenkins.com"/>
+      <parameter name="wsdlServiceElement" value="TaskService"/>
+      <parameter name="schemaQualified" value="http://model.core.server.jenkins.com"/>
+      <parameter name="wsdlServicePort" value="Task"/>
+      <parameter name="className" value="com.jenkins.server.core.model.TaskSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Task"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="setEmployee" qname="operNS:setEmployee" xmlns:operNS="http://model.core.server.jenkins.com" soapAction="" >
+        <parameter qname="pns:employee" xmlns:pns="http://model.core.server.jenkins.com" type="tns:Employee" xmlns:tns="http://model.core.server.jenkins.com"/>
+      </operation>
+      <operation name="getEmployee" qname="operNS:getEmployee" xmlns:operNS="http://model.core.server.jenkins.com" returnQName="retNS:getEmployeeReturn" xmlns:retNS="http://model.core.server.jenkins.com" returnType="rtns:Employee" xmlns:rtns="http://model.core.server.jenkins.com" soapAction="" >
+      </operation>
+      <operation name="getName" qname="operNS:getName" xmlns:operNS="http://model.core.server.jenkins.com" returnQName="retNS:getNameReturn" xmlns:retNS="http://model.core.server.jenkins.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setName" qname="operNS:setName" xmlns:operNS="http://model.core.server.jenkins.com" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://model.core.server.jenkins.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="setName getName setEmployee getEmployee"/>
+
+      <typeMapping
+        xmlns:ns="http://model.core.server.jenkins.com"
+        qname="ns:Person"
+        type="java:com.jenkins.server.core.model.Person"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model.core.server.jenkins.com"
+        qname="ns:Employee"
+        type="java:com.jenkins.server.core.model.Employee"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://model.core.server.jenkins.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://model.core.server.jenkins.com" xmlns:intf="http://model.core.server.jenkins.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.core.server.jenkins.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="setEmployee">
+    <complexType>
+     <sequence>
+      <element name="employee" type="impl:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Person">
+    <sequence>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Employee">
+    <complexContent>
+     <extension base="impl:Person">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="setEmployeeResponse">
+    <complexType/>
+   </element>
+   <element name="getEmployee">
+    <complexType/>
+   </element>
+   <element name="getEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="getEmployeeReturn" type="impl:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getName">
+    <complexType/>
+   </element>
+   <element name="getNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setName">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setNameResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getNameRequest">
+
+      <wsdl:part element="impl:getName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEmployeeRequest">
+
+      <wsdl:part element="impl:getEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEmployeeResponse">
+
+      <wsdl:part element="impl:getEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setEmployeeRequest">
+
+      <wsdl:part element="impl:setEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setEmployeeResponse">
+
+      <wsdl:part element="impl:setEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNameResponse">
+
+      <wsdl:part element="impl:getNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNameRequest">
+
+      <wsdl:part element="impl:setName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNameResponse">
+
+      <wsdl:part element="impl:setNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Task">
+
+      <wsdl:operation name="setEmployee">
+
+         <wsdl:input message="impl:setEmployeeRequest" name="setEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setEmployeeResponse" name="setEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEmployee">
+
+         <wsdl:input message="impl:getEmployeeRequest" name="getEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getEmployeeResponse" name="getEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getName">
+
+         <wsdl:input message="impl:getNameRequest" name="getNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNameResponse" name="getNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setName">
+
+         <wsdl:input message="impl:setNameRequest" name="setNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setNameResponse" name="setNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TaskSoapBinding" type="impl:Task">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TaskService">
+
+      <wsdl:port binding="impl:TaskSoapBinding" name="Task">
+
+         <wsdlsoap:address location="http://localhost:8080/jenkins-core/services/Task"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

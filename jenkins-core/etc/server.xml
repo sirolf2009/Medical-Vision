@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<jenkins>
-<port>8080</port>
-<base_uri>http://localhost:8080/jenkins/</base_uri>
-</jenkins>
