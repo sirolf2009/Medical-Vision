@@ -1,0 +1,1291 @@
+2015-05-10 16:55:48.065+0000 INFO  [org.neo4j]: No locking implementation specified, defaulting to 'community'
+2015-05-10 16:55:48.123+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics START ---
+2015-05-10 16:55:48.124+0000 INFO  [org.neo4j]: Neo4j Kernel properties:
+    store_dir=neo4j
+    ephemeral=false
+2015-05-10 16:55:48.128+0000 INFO  [org.neo4j]: Diagnostics providers:
+    org.neo4j.kernel.configuration.Config
+    org.neo4j.kernel.info.DiagnosticsManager
+    SYSTEM_MEMORY
+    JAVA_MEMORY
+    OPERATING_SYSTEM
+    JAVA_VIRTUAL_MACHINE
+    CLASSPATH
+    LIBRARY_PATH
+    SYSTEM_PROPERTIES
+    LINUX_SCHEDULERS
+    NETWORK
+2015-05-10 16:55:48.128+0000 INFO  [org.neo4j]: System memory information:
+    Total Physical memory: 7.58 GB
+    Free Physical memory: 1.05 GB
+    Committed virtual memory: 5.03 GB
+    Total swap space: 6.93 GB
+    Free swap space: 6.39 GB
+2015-05-10 16:55:48.130+0000 INFO  [org.neo4j]: JVM memory information:
+    Free  memory: 96.71 MB
+    Total memory: 146.50 MB
+    Max   memory: 1.68 GB
+    Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+    Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+    Memory Pool: Code Cache (Non-heap memory): committed=2.44 MB, used=827.19 kB, max=48.00 MB, threshold=0.00 B
+    Memory Pool: PS Eden Space (Heap memory): committed=61.00 MB, used=41.98 MB, max=637.00 MB, threshold=?
+    Memory Pool: PS Survivor Space (Heap memory): committed=5.00 MB, used=5.00 MB, max=5.00 MB, threshold=?
+    Memory Pool: PS Old Gen (Heap memory): committed=80.50 MB, used=2.81 MB, max=1.26 GB, threshold=0.00 B
+    Memory Pool: PS Perm Gen (Non-heap memory): committed=21.00 MB, used=18.33 MB, max=166.00 MB, threshold=0.00 B
+2015-05-10 16:55:48.133+0000 INFO  [org.neo4j]: Operating system information:
+    Operating System: Linux; version: 3.13.0-52-generic; arch: amd64; cpus: 8
+    Max number of file descriptors: 4096
+    Number of open file descriptors: 101
+    Process id: 24179@sirolf2009-ubuntu
+    Byte order: LITTLE_ENDIAN
+    Local timezone: Europe/Amsterdam
+2015-05-10 16:55:48.134+0000 INFO  [org.neo4j]: JVM information:
+    VM Name: OpenJDK 64-Bit Server VM
+    VM Vendor: Oracle Corporation
+    VM Version: 24.79-b02
+    JIT compiler: HotSpot 64-Bit Tiered Compilers
+    VM Arguments: [-Dfile.encoding=UTF-8]
+2015-05-10 16:55:48.135+0000 INFO  [org.neo4j]: Java classpath:
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b10/javax.inject-2.4.0-b10.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.17/jersey-guava-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/2.17/jersey-entity-filtering-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/zipfs.jar
+     [loader.1] file:/usr/lib/x86_64-linux-gnu/jni/libatk-wrapper.so.0.0.18
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-lucene-index/2.2.0-M04/neo4j-lucene-index-2.2.0-M04.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher/2.2.0-M04/neo4j-cypher-2.2.0-M04.jar
+     [classpath] /home/sirolf2009/Java Projects/bean-tx/target/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b10/hk2-locator-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-scala_2.10/1.1.6/parboiled-scala_2.10-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-io/2.2.0-M04/neo4j-io-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j/2.2.0-M04/neo4j-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.1/2.1.6/neo4j-cypher-compiler-2.1-2.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-csv/2.2.0-M04/neo4j-csv-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http/2.3.16/grizzly-http-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-matching/2.2.0-M04/neo4j-graph-matching-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.17/jersey-media-jaxb-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b10/hk2-api-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-common/2.17/jersey-common-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.3.2/jackson-jaxrs-json-provider-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service/target/classes/
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.3.2/jackson-module-jaxb-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.3.2/jackson-jaxrs-base-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/lucene/lucene-core/3.6.2/lucene-core-3.6.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-udc/2.2.0-M04/neo4j-udc-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b10/aopalliance-repackaged-2.4.0-b10.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/dnsns.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.0-M04/neo4j-primitive-collections-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-client/2.17/jersey-client-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-1.9/2.0.4/neo4j-cypher-compiler-1.9-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-kernel/2.2.0-M04/neo4j-kernel-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/2.17/jersey-media-json-jackson-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-framework/2.3.16/grizzly-framework-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4/concurrentlinkedhashmap-lru-1.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-server/2.17/jersey-server-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.0/2.0.4/neo4j-cypher-compiler-2.0-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-http/2.17/jersey-container-grizzly2-http-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http-server/2.3.16/grizzly-http-server-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-jmx/2.2.0-M04/neo4j-jmx-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-algo/2.2.0-M04/neo4j-graph-algo-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b10/hk2-utils-2.4.0-b10.jar
+     [loader.0] file:/home/sirolf2009/Java%20Projects/bean-tx/target/classes/
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-core/1.1.6/parboiled-core-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.2/2.2.0-M04/neo4j-cypher-compiler-2.2-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/localedata.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-consistency-check/2.2.0-M04/neo4j-consistency-check-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-core/target/classes/
+2015-05-10 16:55:48.137+0000 INFO  [org.neo4j]: Library path:
+    /usr/java/packages/lib/amd64
+    /usr/lib/x86_64-linux-gnu/jni
+    /lib/x86_64-linux-gnu
+    /usr/lib/x86_64-linux-gnu
+    /usr/lib/jni
+    /lib
+    /usr/lib
+2015-05-10 16:55:48.137+0000 INFO  [org.neo4j]: System.properties:
+    sun.boot.library.path = /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64
+    path.separator = :
+    file.encoding.pkg = sun.io
+    user.country = US
+    sun.java.launcher = SUN_STANDARD
+    sun.os.patch.level = unknown
+    user.dir = /home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    user.home = /home/sirolf2009
+    user.timezone = Europe/Amsterdam
+    file.encoding = UTF-8
+    user.name = sirolf2009
+    sun.java.command = org.medicalvision.service.Main
+    sun.arch.data.model = 64
+    user.language = en
+    awt.toolkit = sun.awt.X11.XToolkit
+    file.separator = /
+    sun.io.unicode.encoding = UnicodeLittle
+    sun.cpu.endian = little
+    sun.desktop = gnome
+    sun.cpu.isalist = 
+2015-05-10 16:55:48.138+0000 INFO  [org.neo4j]: Linux scheduler information:
+    noop [deadline] cfq 
+    noop [deadline] cfq 
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+2015-05-10 16:55:48.141+0000 INFO  [org.neo4j]: Network information:
+    Interface vmnet8:
+        address: fe80:0:0:0:250:56ff:fec0:8%8
+        address: 172.16.177.1
+    Interface vmnet1:
+        address: fe80:0:0:0:250:56ff:fec0:1%7
+        address: 172.16.113.1
+    Interface docker0:
+        address: 172.17.42.1
+    Interface wlan0:
+        address: fe80:0:0:0:8200:bff:fe2e:935c%3
+        address: 192.168.0.119
+    Interface eth0:
+        address: fe80:0:0:0:1658:d0ff:feca:a1b4%2
+        address: 192.168.0.109
+    Interface lo:
+        address: 0:0:0:0:0:0:0:1%1
+        address: 127.0.0.1
+2015-05-10 16:55:48.142+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics END ---
+2015-05-10 16:55:48.248+0000 INFO  [org.neo4j]: Creating new db @ neo4j/neostore
+2015-05-10 16:55:51.183+0000 INFO  [org.neo4j]: No lucene scan store index found, this might just be first use. Preparing to rebuild.
+2015-05-10 16:55:51.201+0000 INFO  [org.neo4j]: No lucene scan store index found, this might just be first use. Preparing to rebuild.
+2015-05-10 16:55:51.248+0000 INFO  [org.neo4j]: Opened logical log [neo4j/neostore.transaction.db.0] version=0, lastTxId=1 (clean)
+2015-05-10 16:55:51.257+0000 INFO  [org.neo4j]: Missing counts store, rebuilding it.
+2015-05-10 16:55:51.260+0000 INFO  [org.neo4j]: About to rotate counts store at transaction 1 to [neo4j/neostore.counts.db.b], from [neo4j/neostore.counts.db.a].
+2015-05-10 16:55:51.261+0000 INFO  [org.neo4j]: Successfully rotated counts store at transaction 1 to [neo4j/neostore.counts.db.b], from [neo4j/neostore.counts.db.a].
+2015-05-10 16:55:51.339+0000 INFO  [org.neo4j]: Rebuilding lucene scan store, this may take a while
+2015-05-10 16:55:51.340+0000 INFO  [org.neo4j]: Lucene scan store rebuilt (roughly -1 nodes)
+2015-05-10 16:55:51.689+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions START ---
+2015-05-10 16:55:51.690+0000 INFO  [org.neo4j]: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId{creationTime=1431276948247, randomId=805554097173310708, storeVersion=14969031248344582, upgradeTime=1431276948247, upgradeId=1}
+2015-05-10 16:55:51.690+0000 INFO  [org.neo4j]: Kernel version: Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04
+2015-05-10 16:55:51.690+0000 INFO  [org.neo4j]: Neo4j component versions:
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Lucene Index (neo4j-lucene-index), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.1 (neo4j-cypher-compiler-2.1), version: 2.1.6; revision: 2.1.6:2.1-maint:605/0d7f25fc608f15c54ec1a01f4ba4564ebfb1071a
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Consistency Checker (neo4j-consistency-check), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Graph Algorithms (neo4j-graph-algo), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.0 (neo4j-cypher-compiler-2.0), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.2 (neo4j-cypher-compiler-2.2), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 1.9 (neo4j-cypher-compiler-1.9), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   neo4j-udc, version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - JMX support (neo4j-jmx), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Graph Matching (neo4j-graph-matching), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.693+0000 INFO  [org.neo4j]:   Neo4j - Cypher (neo4j-cypher), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.694+0000 INFO  [org.neo4j]:   Neo4j - Community (neo4j), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 16:55:51.694+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions END ---
+2015-05-10 16:55:51.695+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS START ---
+2015-05-10 16:55:51.695+0000 INFO  [org.neo4j]: Store versions:
+    Store versions:
+      NeoStore v0.A.5
+      SchemaStore v0.A.5
+      NodeStore v0.A.5
+      RelationshipStore v0.A.5
+      RelationshipTypeStore v0.A.5
+      LabelTokenStore v0.A.5
+      PropertyStore v0.A.5
+      PropertyIndexStore v0.A.5
+      StringPropertyStore v0.A.5
+      ArrayPropertyStore v0.A.5
+      RelationshipGroupStore v0.A.5
+2015-05-10 16:55:51.695+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS END ---
+2015-05-10 16:55:51.695+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE START ---
+2015-05-10 16:55:51.695+0000 INFO  [org.neo4j]: Id usage:
+    Id usage:
+      SchemaStore: used=1 high=0
+      NodeStore: used=0 high=-1
+      RelationshipStore: used=0 high=-1
+      RelationshipTypeStore: used=0 high=-1
+      LabelTokenStore: used=0 high=-1
+      PropertyStore: used=0 high=-1
+      PropertyIndexStore: used=0 high=-1
+      StringPropertyStore: used=1 high=0
+      ArrayPropertyStore: used=1 high=0
+      RelationshipGroupStore: used=1 high=0
+2015-05-10 16:55:51.696+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE END ---
+2015-05-10 16:55:51.696+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles START ---
+2015-05-10 16:55:51.696+0000 INFO  [org.neo4j]: Disk space on partition (Total / Free / Free %): 241498349568 / 17561530368 / 7
+Storage files: (filename : modification date - size)
+      index:
+      - Total: 2015-05-10T18:55:48+0200 - 0.00 B
+      lock: 2015-05-10T18:55:51+0200 - 0.00 B
+      messages.log: 2015-05-10T18:55:51+0200 - 19.18 kB
+      neostore: 2015-05-10T18:55:51+0200 - 99.00 B
+      neostore.counts.db.a: 2015-05-10T18:55:51+0200 - 114.00 B
+      neostore.counts.db.b: 2015-05-10T18:55:51+0200 - 114.00 B
+      neostore.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.labeltokenstore.db: 2015-05-10T18:55:51+0200 - 0.00 B
+      neostore.labeltokenstore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.labeltokenstore.db.names: 2015-05-10T18:55:51+0200 - 38.00 B
+      neostore.labeltokenstore.db.names.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.nodestore.db: 2015-05-10T18:55:51+0200 - 0.00 B
+      neostore.nodestore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.nodestore.db.labels: 2015-05-10T18:55:51+0200 - 68.00 B
+      neostore.nodestore.db.labels.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.propertystore.db: 2015-05-10T18:55:51+0200 - 0.00 B
+      neostore.propertystore.db.arrays: 2015-05-10T18:55:51+0200 - 128.00 B
+      neostore.propertystore.db.arrays.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.propertystore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.propertystore.db.index: 2015-05-10T18:55:51+0200 - 0.00 B
+      neostore.propertystore.db.index.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.propertystore.db.index.keys: 2015-05-10T18:55:51+0200 - 38.00 B
+      neostore.propertystore.db.index.keys.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.propertystore.db.strings: 2015-05-10T18:55:51+0200 - 128.00 B
+      neostore.propertystore.db.strings.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.relationshipgroupstore.db: 2015-05-10T18:55:51+0200 - 25.00 B
+      neostore.relationshipgroupstore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.relationshipstore.db: 2015-05-10T18:55:51+0200 - 0.00 B
+      neostore.relationshipstore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.relationshiptypestore.db: 2015-05-10T18:55:51+0200 - 0.00 B
+      neostore.relationshiptypestore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.relationshiptypestore.db.names: 2015-05-10T18:55:51+0200 - 38.00 B
+      neostore.relationshiptypestore.db.names.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.schemastore.db: 2015-05-10T18:55:51+0200 - 64.00 B
+      neostore.schemastore.db.id: 2015-05-10T18:55:51+0200 - 9.00 B
+      neostore.transaction.db.0: 2015-05-10T18:55:51+0200 - 16.00 B
+      schema:
+        label:
+          lucene:
+            write.lock: 2015-05-10T18:55:51+0200 - 0.00 B
+          - Total: 2015-05-10T18:55:51+0200 - 0.00 B
+        - Total: 2015-05-10T18:55:51+0200 - 0.00 B
+      - Total: 2015-05-10T18:55:51+0200 - 0.00 B
+      store_lock: 2015-05-10T18:55:48+0200 - 0.00 B
+2015-05-10 16:55:51.703+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles END ---
+2015-05-10 16:55:51.730+0000 INFO  [org.neo4j]: Database is now ready
+2015-05-10 17:36:21.777+0000 INFO  [org.neo4j]: Shutdown started
+2015-05-10 17:36:21.777+0000 INFO  [org.neo4j]: Database is now unavailable
+2015-05-10 17:36:21.877+0000 INFO  [org.neo4j]: About to rotate counts store at transaction 6 to [neo4j/neostore.counts.db.a], from [neo4j/neostore.counts.db.b].
+2015-05-10 17:36:21.879+0000 INFO  [org.neo4j]: Successfully rotated counts store at transaction 6 to [neo4j/neostore.counts.db.a], from [neo4j/neostore.counts.db.b].
+2015-05-10 17:36:23.190+0000 INFO  [org.neo4j]: NeoStore closed
+2015-05-10 17:36:23.190+0000 INFO  [org.neo4j]: --- STOPPING diagnostics START ---
+2015-05-10 17:36:23.190+0000 INFO  [org.neo4j]: --- STOPPING diagnostics END ---
+2015-05-10 17:36:25.984+0000 INFO  [org.neo4j]: No locking implementation specified, defaulting to 'community'
+2015-05-10 17:36:26.040+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics START ---
+2015-05-10 17:36:26.041+0000 INFO  [org.neo4j]: Neo4j Kernel properties:
+    store_dir=neo4j
+    ephemeral=false
+2015-05-10 17:36:26.044+0000 INFO  [org.neo4j]: Diagnostics providers:
+    org.neo4j.kernel.configuration.Config
+    org.neo4j.kernel.info.DiagnosticsManager
+    SYSTEM_MEMORY
+    JAVA_MEMORY
+    OPERATING_SYSTEM
+    JAVA_VIRTUAL_MACHINE
+    CLASSPATH
+    LIBRARY_PATH
+    SYSTEM_PROPERTIES
+    LINUX_SCHEDULERS
+    NETWORK
+2015-05-10 17:36:26.044+0000 INFO  [org.neo4j]: System memory information:
+    Total Physical memory: 7.58 GB
+    Free Physical memory: 433.14 MB
+    Committed virtual memory: 5.03 GB
+    Total swap space: 6.93 GB
+    Free swap space: 6.40 GB
+2015-05-10 17:36:26.046+0000 INFO  [org.neo4j]: JVM memory information:
+    Free  memory: 101.12 MB
+    Total memory: 146.50 MB
+    Max   memory: 1.68 GB
+    Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+    Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+    Memory Pool: Code Cache (Non-heap memory): committed=2.44 MB, used=816.81 kB, max=48.00 MB, threshold=0.00 B
+    Memory Pool: PS Eden Space (Heap memory): committed=61.00 MB, used=37.72 MB, max=637.00 MB, threshold=?
+    Memory Pool: PS Survivor Space (Heap memory): committed=5.00 MB, used=5.00 MB, max=5.00 MB, threshold=?
+    Memory Pool: PS Old Gen (Heap memory): committed=80.50 MB, used=2.66 MB, max=1.26 GB, threshold=0.00 B
+    Memory Pool: PS Perm Gen (Non-heap memory): committed=21.00 MB, used=18.33 MB, max=166.00 MB, threshold=0.00 B
+2015-05-10 17:36:26.049+0000 INFO  [org.neo4j]: Operating system information:
+    Operating System: Linux; version: 3.13.0-52-generic; arch: amd64; cpus: 8
+    Max number of file descriptors: 4096
+    Number of open file descriptors: 102
+    Process id: 26202@sirolf2009-ubuntu
+    Byte order: LITTLE_ENDIAN
+    Local timezone: Europe/Amsterdam
+2015-05-10 17:36:26.050+0000 INFO  [org.neo4j]: JVM information:
+    VM Name: OpenJDK 64-Bit Server VM
+    VM Vendor: Oracle Corporation
+    VM Version: 24.79-b02
+    JIT compiler: HotSpot 64-Bit Tiered Compilers
+    VM Arguments: [-Dfile.encoding=UTF-8]
+2015-05-10 17:36:26.051+0000 INFO  [org.neo4j]: Java classpath:
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b10/javax.inject-2.4.0-b10.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.17/jersey-guava-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/2.17/jersey-entity-filtering-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/zipfs.jar
+     [loader.1] file:/usr/lib/x86_64-linux-gnu/jni/libatk-wrapper.so.0.0.18
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-lucene-index/2.2.0-M04/neo4j-lucene-index-2.2.0-M04.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher/2.2.0-M04/neo4j-cypher-2.2.0-M04.jar
+     [classpath] /home/sirolf2009/Java Projects/bean-tx/target/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b10/hk2-locator-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-scala_2.10/1.1.6/parboiled-scala_2.10-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-io/2.2.0-M04/neo4j-io-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j/2.2.0-M04/neo4j-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/cjsavage/JNetDiscovery/1.0/JNetDiscovery-1.0.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.1/2.1.6/neo4j-cypher-compiler-2.1-2.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-csv/2.2.0-M04/neo4j-csv-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http/2.3.16/grizzly-http-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-matching/2.2.0-M04/neo4j-graph-matching-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.17/jersey-media-jaxb-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b10/hk2-api-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-common/2.17/jersey-common-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.3.2/jackson-jaxrs-json-provider-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service/target/classes/
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.3.2/jackson-module-jaxb-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.3.2/jackson-jaxrs-base-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/lucene/lucene-core/3.6.2/lucene-core-3.6.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-udc/2.2.0-M04/neo4j-udc-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b10/aopalliance-repackaged-2.4.0-b10.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/dnsns.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.0-M04/neo4j-primitive-collections-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-client/2.17/jersey-client-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-1.9/2.0.4/neo4j-cypher-compiler-1.9-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-kernel/2.2.0-M04/neo4j-kernel-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/2.17/jersey-media-json-jackson-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-framework/2.3.16/grizzly-framework-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4/concurrentlinkedhashmap-lru-1.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-server/2.17/jersey-server-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.0/2.0.4/neo4j-cypher-compiler-2.0-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-http/2.17/jersey-container-grizzly2-http-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http-server/2.3.16/grizzly-http-server-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-jmx/2.2.0-M04/neo4j-jmx-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-algo/2.2.0-M04/neo4j-graph-algo-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b10/hk2-utils-2.4.0-b10.jar
+     [loader.0] file:/home/sirolf2009/Java%20Projects/bean-tx/target/classes/
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-core/1.1.6/parboiled-core-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.2/2.2.0-M04/neo4j-cypher-compiler-2.2-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/localedata.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-consistency-check/2.2.0-M04/neo4j-consistency-check-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-core/target/classes/
+2015-05-10 17:36:26.053+0000 INFO  [org.neo4j]: Library path:
+    /usr/java/packages/lib/amd64
+    /usr/lib/x86_64-linux-gnu/jni
+    /lib/x86_64-linux-gnu
+    /usr/lib/x86_64-linux-gnu
+    /usr/lib/jni
+    /lib
+    /usr/lib
+2015-05-10 17:36:26.053+0000 INFO  [org.neo4j]: System.properties:
+    sun.boot.library.path = /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64
+    path.separator = :
+    file.encoding.pkg = sun.io
+    user.country = US
+    sun.java.launcher = SUN_STANDARD
+    sun.os.patch.level = unknown
+    user.dir = /home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    user.home = /home/sirolf2009
+    user.timezone = Europe/Amsterdam
+    file.encoding = UTF-8
+    user.name = sirolf2009
+    sun.java.command = org.medicalvision.service.Main
+    sun.arch.data.model = 64
+    user.language = en
+    awt.toolkit = sun.awt.X11.XToolkit
+    file.separator = /
+    sun.io.unicode.encoding = UnicodeLittle
+    sun.cpu.endian = little
+    sun.desktop = gnome
+    sun.cpu.isalist = 
+2015-05-10 17:36:26.053+0000 INFO  [org.neo4j]: Linux scheduler information:
+    noop [deadline] cfq 
+    noop [deadline] cfq 
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+2015-05-10 17:36:26.056+0000 INFO  [org.neo4j]: Network information:
+    Interface vmnet8:
+        address: fe80:0:0:0:250:56ff:fec0:8%8
+        address: 172.16.177.1
+    Interface vmnet1:
+        address: fe80:0:0:0:250:56ff:fec0:1%7
+        address: 172.16.113.1
+    Interface docker0:
+        address: 172.17.42.1
+    Interface wlan0:
+        address: fe80:0:0:0:8200:bff:fe2e:935c%3
+        address: 192.168.0.119
+    Interface eth0:
+        address: fe80:0:0:0:1658:d0ff:feca:a1b4%2
+        address: 192.168.0.109
+    Interface lo:
+        address: 0:0:0:0:0:0:0:1%1
+        address: 127.0.0.1
+2015-05-10 17:36:26.058+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics END ---
+2015-05-10 17:36:26.462+0000 INFO  [org.neo4j]: Opened logical log [neo4j/neostore.transaction.db.1] version=1, lastTxId=6 (clean)
+2015-05-10 17:36:26.935+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions START ---
+2015-05-10 17:36:26.935+0000 INFO  [org.neo4j]: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId{creationTime=1431276948247, randomId=805554097173310708, storeVersion=14969031248344582, upgradeTime=1431276948247, upgradeId=1}
+2015-05-10 17:36:26.935+0000 INFO  [org.neo4j]: Kernel version: Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04
+2015-05-10 17:36:26.935+0000 INFO  [org.neo4j]: Neo4j component versions:
+2015-05-10 17:36:26.939+0000 INFO  [org.neo4j]:   Neo4j - Lucene Index (neo4j-lucene-index), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.939+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.1 (neo4j-cypher-compiler-2.1), version: 2.1.6; revision: 2.1.6:2.1-maint:605/0d7f25fc608f15c54ec1a01f4ba4564ebfb1071a
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Consistency Checker (neo4j-consistency-check), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Graph Algorithms (neo4j-graph-algo), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.0 (neo4j-cypher-compiler-2.0), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.2 (neo4j-cypher-compiler-2.2), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 1.9 (neo4j-cypher-compiler-1.9), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   neo4j-udc, version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - JMX support (neo4j-jmx), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Graph Matching (neo4j-graph-matching), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Cypher (neo4j-cypher), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]:   Neo4j - Community (neo4j), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:36:26.940+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions END ---
+2015-05-10 17:36:26.942+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS START ---
+2015-05-10 17:36:26.942+0000 INFO  [org.neo4j]: Store versions:
+    Store versions:
+      NeoStore v0.A.5
+      SchemaStore v0.A.5
+      NodeStore v0.A.5
+      RelationshipStore v0.A.5
+      RelationshipTypeStore v0.A.5
+      LabelTokenStore v0.A.5
+      PropertyStore v0.A.5
+      PropertyIndexStore v0.A.5
+      StringPropertyStore v0.A.5
+      ArrayPropertyStore v0.A.5
+      RelationshipGroupStore v0.A.5
+2015-05-10 17:36:26.943+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS END ---
+2015-05-10 17:36:26.943+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE START ---
+2015-05-10 17:36:26.943+0000 INFO  [org.neo4j]: Id usage:
+    Id usage:
+      SchemaStore: used=1 high=0
+      NodeStore: used=1 high=0
+      RelationshipStore: used=0 high=-1
+      RelationshipTypeStore: used=0 high=-1
+      LabelTokenStore: used=1 high=0
+      PropertyStore: used=2 high=1
+      PropertyIndexStore: used=3 high=2
+      StringPropertyStore: used=2 high=1
+      ArrayPropertyStore: used=1 high=0
+      RelationshipGroupStore: used=1 high=0
+2015-05-10 17:36:26.944+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE END ---
+2015-05-10 17:36:26.944+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles START ---
+2015-05-10 17:36:26.944+0000 INFO  [org.neo4j]: Disk space on partition (Total / Free / Free %): 241498349568 / 17513730048 / 7
+Storage files: (filename : modification date - size)
+      index:
+      - Total: 2015-05-10T18:55:48+0200 - 0.00 B
+      lock: 2015-05-10T19:36:26+0200 - 0.00 B
+      messages.log: 2015-05-10T19:36:26+0200 - 41.58 kB
+      neostore: 2015-05-10T19:36:26+0200 - 99.00 B
+      neostore.counts.db.a: 2015-05-10T19:36:21+0200 - 178.00 B
+      neostore.counts.db.b: 2015-05-10T18:55:51+0200 - 114.00 B
+      neostore.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.labeltokenstore.db: 2015-05-10T19:36:26+0200 - 5.00 B
+      neostore.labeltokenstore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.labeltokenstore.db.names: 2015-05-10T19:36:26+0200 - 76.00 B
+      neostore.labeltokenstore.db.names.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.nodestore.db: 2015-05-10T19:36:26+0200 - 15.00 B
+      neostore.nodestore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.nodestore.db.labels: 2015-05-10T19:36:26+0200 - 68.00 B
+      neostore.nodestore.db.labels.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.propertystore.db: 2015-05-10T19:36:26+0200 - 82.00 B
+      neostore.propertystore.db.arrays: 2015-05-10T19:36:26+0200 - 128.00 B
+      neostore.propertystore.db.arrays.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.propertystore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.propertystore.db.index: 2015-05-10T19:36:26+0200 - 27.00 B
+      neostore.propertystore.db.index.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.propertystore.db.index.keys: 2015-05-10T19:36:26+0200 - 152.00 B
+      neostore.propertystore.db.index.keys.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.propertystore.db.strings: 2015-05-10T19:36:26+0200 - 256.00 B
+      neostore.propertystore.db.strings.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.relationshipgroupstore.db: 2015-05-10T19:36:26+0200 - 25.00 B
+      neostore.relationshipgroupstore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.relationshipstore.db: 2015-05-10T19:36:26+0200 - 0.00 B
+      neostore.relationshipstore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.relationshiptypestore.db: 2015-05-10T19:36:26+0200 - 0.00 B
+      neostore.relationshiptypestore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.relationshiptypestore.db.names: 2015-05-10T19:36:26+0200 - 38.00 B
+      neostore.relationshiptypestore.db.names.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.schemastore.db: 2015-05-10T19:36:26+0200 - 64.00 B
+      neostore.schemastore.db.id: 2015-05-10T19:36:26+0200 - 9.00 B
+      neostore.transaction.db.0: 2015-05-10T18:56:07+0200 - 814.00 B
+      neostore.transaction.db.1: 2015-05-10T19:36:26+0200 - 16.00 B
+      schema:
+        label:
+          lucene:
+            _0.cfs: 2015-05-10T18:56:07+0200 - 225.00 B
+            segments.gen: 2015-05-10T19:36:21+0200 - 20.00 B
+            segments_1: 2015-05-10T19:36:21+0200 - 250.00 B
+            write.lock: 2015-05-10T19:36:26+0200 - 0.00 B
+          - Total: 2015-05-10T19:36:26+0200 - 495.00 B
+        - Total: 2015-05-10T18:55:51+0200 - 495.00 B
+      - Total: 2015-05-10T18:55:51+0200 - 495.00 B
+      store_lock: 2015-05-10T18:55:48+0200 - 0.00 B
+2015-05-10 17:36:26.953+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles END ---
+2015-05-10 17:36:26.985+0000 INFO  [org.neo4j]: Database is now ready
+2015-05-10 17:39:52.494+0000 INFO  [org.neo4j]: Shutdown started
+2015-05-10 17:39:52.494+0000 INFO  [org.neo4j]: Database is now unavailable
+2015-05-10 17:39:53.463+0000 INFO  [org.neo4j]: NeoStore closed
+2015-05-10 17:39:53.463+0000 INFO  [org.neo4j]: --- STOPPING diagnostics START ---
+2015-05-10 17:39:53.463+0000 INFO  [org.neo4j]: --- STOPPING diagnostics END ---
+2015-05-10 17:40:00.645+0000 INFO  [org.neo4j]: No locking implementation specified, defaulting to 'community'
+2015-05-10 17:40:00.715+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics START ---
+2015-05-10 17:40:00.716+0000 INFO  [org.neo4j]: Neo4j Kernel properties:
+    store_dir=neo4j
+    ephemeral=false
+2015-05-10 17:40:00.719+0000 INFO  [org.neo4j]: Diagnostics providers:
+    org.neo4j.kernel.configuration.Config
+    org.neo4j.kernel.info.DiagnosticsManager
+    SYSTEM_MEMORY
+    JAVA_MEMORY
+    OPERATING_SYSTEM
+    JAVA_VIRTUAL_MACHINE
+    CLASSPATH
+    LIBRARY_PATH
+    SYSTEM_PROPERTIES
+    LINUX_SCHEDULERS
+    NETWORK
+2015-05-10 17:40:00.720+0000 INFO  [org.neo4j]: System memory information:
+    Total Physical memory: 7.58 GB
+    Free Physical memory: 352.55 MB
+    Committed virtual memory: 5.03 GB
+    Total swap space: 6.93 GB
+    Free swap space: 6.40 GB
+2015-05-10 17:40:00.721+0000 INFO  [org.neo4j]: JVM memory information:
+    Free  memory: 100.17 MB
+    Total memory: 116.00 MB
+    Max   memory: 1.68 GB
+    Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+    Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+    Memory Pool: Code Cache (Non-heap memory): committed=2.44 MB, used=815.06 kB, max=48.00 MB, threshold=0.00 B
+    Memory Pool: PS Eden Space (Heap memory): committed=30.50 MB, used=3.41 MB, max=637.00 MB, threshold=?
+    Memory Pool: PS Survivor Space (Heap memory): committed=5.00 MB, used=4.99 MB, max=5.00 MB, threshold=?
+    Memory Pool: PS Old Gen (Heap memory): committed=80.50 MB, used=7.42 MB, max=1.26 GB, threshold=0.00 B
+    Memory Pool: PS Perm Gen (Non-heap memory): committed=21.00 MB, used=18.34 MB, max=166.00 MB, threshold=0.00 B
+2015-05-10 17:40:00.724+0000 INFO  [org.neo4j]: Operating system information:
+    Operating System: Linux; version: 3.13.0-52-generic; arch: amd64; cpus: 8
+    Max number of file descriptors: 4096
+    Number of open file descriptors: 102
+    Process id: 26450@sirolf2009-ubuntu
+    Byte order: LITTLE_ENDIAN
+    Local timezone: Europe/Amsterdam
+2015-05-10 17:40:00.725+0000 INFO  [org.neo4j]: JVM information:
+    VM Name: OpenJDK 64-Bit Server VM
+    VM Vendor: Oracle Corporation
+    VM Version: 24.79-b02
+    JIT compiler: HotSpot 64-Bit Tiered Compilers
+    VM Arguments: [-Dfile.encoding=UTF-8]
+2015-05-10 17:40:00.725+0000 INFO  [org.neo4j]: Java classpath:
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b10/javax.inject-2.4.0-b10.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.17/jersey-guava-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/2.17/jersey-entity-filtering-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/zipfs.jar
+     [loader.1] file:/usr/lib/x86_64-linux-gnu/jni/libatk-wrapper.so.0.0.18
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-lucene-index/2.2.0-M04/neo4j-lucene-index-2.2.0-M04.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher/2.2.0-M04/neo4j-cypher-2.2.0-M04.jar
+     [classpath] /home/sirolf2009/Java Projects/bean-tx/target/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b10/hk2-locator-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-scala_2.10/1.1.6/parboiled-scala_2.10-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-io/2.2.0-M04/neo4j-io-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j/2.2.0-M04/neo4j-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/cjsavage/JNetDiscovery/1.0/JNetDiscovery-1.0.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.1/2.1.6/neo4j-cypher-compiler-2.1-2.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-csv/2.2.0-M04/neo4j-csv-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http/2.3.16/grizzly-http-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-matching/2.2.0-M04/neo4j-graph-matching-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.17/jersey-media-jaxb-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b10/hk2-api-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-common/2.17/jersey-common-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.3.2/jackson-jaxrs-json-provider-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service/target/classes/
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.3.2/jackson-module-jaxb-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.3.2/jackson-jaxrs-base-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/lucene/lucene-core/3.6.2/lucene-core-3.6.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-udc/2.2.0-M04/neo4j-udc-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b10/aopalliance-repackaged-2.4.0-b10.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/dnsns.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.0-M04/neo4j-primitive-collections-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-client/2.17/jersey-client-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-1.9/2.0.4/neo4j-cypher-compiler-1.9-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-kernel/2.2.0-M04/neo4j-kernel-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/2.17/jersey-media-json-jackson-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-framework/2.3.16/grizzly-framework-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4/concurrentlinkedhashmap-lru-1.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-server/2.17/jersey-server-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.0/2.0.4/neo4j-cypher-compiler-2.0-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-http/2.17/jersey-container-grizzly2-http-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http-server/2.3.16/grizzly-http-server-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-jmx/2.2.0-M04/neo4j-jmx-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-algo/2.2.0-M04/neo4j-graph-algo-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b10/hk2-utils-2.4.0-b10.jar
+     [loader.0] file:/home/sirolf2009/Java%20Projects/bean-tx/target/classes/
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-core/1.1.6/parboiled-core-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.2/2.2.0-M04/neo4j-cypher-compiler-2.2-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/localedata.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-consistency-check/2.2.0-M04/neo4j-consistency-check-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-core/target/classes/
+2015-05-10 17:40:00.728+0000 INFO  [org.neo4j]: Library path:
+    /usr/java/packages/lib/amd64
+    /usr/lib/x86_64-linux-gnu/jni
+    /lib/x86_64-linux-gnu
+    /usr/lib/x86_64-linux-gnu
+    /usr/lib/jni
+    /lib
+    /usr/lib
+2015-05-10 17:40:00.728+0000 INFO  [org.neo4j]: System.properties:
+    sun.boot.library.path = /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64
+    path.separator = :
+    file.encoding.pkg = sun.io
+    user.country = US
+    sun.java.launcher = SUN_STANDARD
+    sun.os.patch.level = unknown
+    user.dir = /home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    user.home = /home/sirolf2009
+    user.timezone = Europe/Amsterdam
+    file.encoding = UTF-8
+    user.name = sirolf2009
+    sun.java.command = org.medicalvision.service.Main
+    sun.arch.data.model = 64
+    user.language = en
+    awt.toolkit = sun.awt.X11.XToolkit
+    file.separator = /
+    sun.io.unicode.encoding = UnicodeLittle
+    sun.cpu.endian = little
+    sun.desktop = gnome
+    sun.cpu.isalist = 
+2015-05-10 17:40:00.728+0000 INFO  [org.neo4j]: Linux scheduler information:
+    noop [deadline] cfq 
+    noop [deadline] cfq 
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+2015-05-10 17:40:00.731+0000 INFO  [org.neo4j]: Network information:
+    Interface vmnet8:
+        address: fe80:0:0:0:250:56ff:fec0:8%8
+        address: 172.16.177.1
+    Interface vmnet1:
+        address: fe80:0:0:0:250:56ff:fec0:1%7
+        address: 172.16.113.1
+    Interface docker0:
+        address: 172.17.42.1
+    Interface wlan0:
+        address: fe80:0:0:0:8200:bff:fe2e:935c%3
+        address: 192.168.0.119
+    Interface eth0:
+        address: fe80:0:0:0:1658:d0ff:feca:a1b4%2
+        address: 192.168.0.109
+    Interface lo:
+        address: 0:0:0:0:0:0:0:1%1
+        address: 127.0.0.1
+2015-05-10 17:40:00.733+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics END ---
+2015-05-10 17:40:01.073+0000 INFO  [org.neo4j]: Opened logical log [neo4j/neostore.transaction.db.2] version=2, lastTxId=6 (clean)
+2015-05-10 17:40:01.407+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions START ---
+2015-05-10 17:40:01.407+0000 INFO  [org.neo4j]: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId{creationTime=1431276948247, randomId=805554097173310708, storeVersion=14969031248344582, upgradeTime=1431276948247, upgradeId=1}
+2015-05-10 17:40:01.407+0000 INFO  [org.neo4j]: Kernel version: Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04
+2015-05-10 17:40:01.408+0000 INFO  [org.neo4j]: Neo4j component versions:
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Lucene Index (neo4j-lucene-index), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.1 (neo4j-cypher-compiler-2.1), version: 2.1.6; revision: 2.1.6:2.1-maint:605/0d7f25fc608f15c54ec1a01f4ba4564ebfb1071a
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Consistency Checker (neo4j-consistency-check), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Graph Algorithms (neo4j-graph-algo), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.0 (neo4j-cypher-compiler-2.0), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.2 (neo4j-cypher-compiler-2.2), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 1.9 (neo4j-cypher-compiler-1.9), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   neo4j-udc, version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - JMX support (neo4j-jmx), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Graph Matching (neo4j-graph-matching), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Cypher (neo4j-cypher), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]:   Neo4j - Community (neo4j), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-10 17:40:01.411+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions END ---
+2015-05-10 17:40:01.412+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS START ---
+2015-05-10 17:40:01.412+0000 INFO  [org.neo4j]: Store versions:
+    Store versions:
+      NeoStore v0.A.5
+      SchemaStore v0.A.5
+      NodeStore v0.A.5
+      RelationshipStore v0.A.5
+      RelationshipTypeStore v0.A.5
+      LabelTokenStore v0.A.5
+      PropertyStore v0.A.5
+      PropertyIndexStore v0.A.5
+      StringPropertyStore v0.A.5
+      ArrayPropertyStore v0.A.5
+      RelationshipGroupStore v0.A.5
+2015-05-10 17:40:01.413+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS END ---
+2015-05-10 17:40:01.413+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE START ---
+2015-05-10 17:40:01.413+0000 INFO  [org.neo4j]: Id usage:
+    Id usage:
+      SchemaStore: used=1 high=0
+      NodeStore: used=1 high=0
+      RelationshipStore: used=0 high=-1
+      RelationshipTypeStore: used=0 high=-1
+      LabelTokenStore: used=1 high=0
+      PropertyStore: used=2 high=1
+      PropertyIndexStore: used=3 high=2
+      StringPropertyStore: used=2 high=1
+      ArrayPropertyStore: used=1 high=0
+      RelationshipGroupStore: used=1 high=0
+2015-05-10 17:40:01.413+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE END ---
+2015-05-10 17:40:01.414+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles START ---
+2015-05-10 17:40:01.414+0000 INFO  [org.neo4j]: Disk space on partition (Total / Free / Free %): 241498349568 / 17497231360 / 7
+Storage files: (filename : modification date - size)
+      index:
+      - Total: 2015-05-10T18:55:48+0200 - 0.00 B
+      lock: 2015-05-10T19:40:00+0200 - 0.00 B
+      messages.log: 2015-05-10T19:40:01+0200 - 63.91 kB
+      neostore: 2015-05-10T19:40:00+0200 - 99.00 B
+      neostore.counts.db.a: 2015-05-10T19:36:21+0200 - 178.00 B
+      neostore.counts.db.b: 2015-05-10T18:55:51+0200 - 114.00 B
+      neostore.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.labeltokenstore.db: 2015-05-10T19:40:00+0200 - 5.00 B
+      neostore.labeltokenstore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.labeltokenstore.db.names: 2015-05-10T19:40:00+0200 - 76.00 B
+      neostore.labeltokenstore.db.names.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.nodestore.db: 2015-05-10T19:40:00+0200 - 15.00 B
+      neostore.nodestore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.nodestore.db.labels: 2015-05-10T19:40:00+0200 - 68.00 B
+      neostore.nodestore.db.labels.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.propertystore.db: 2015-05-10T19:40:00+0200 - 82.00 B
+      neostore.propertystore.db.arrays: 2015-05-10T19:40:00+0200 - 128.00 B
+      neostore.propertystore.db.arrays.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.propertystore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.propertystore.db.index: 2015-05-10T19:40:00+0200 - 27.00 B
+      neostore.propertystore.db.index.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.propertystore.db.index.keys: 2015-05-10T19:40:00+0200 - 152.00 B
+      neostore.propertystore.db.index.keys.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.propertystore.db.strings: 2015-05-10T19:40:00+0200 - 256.00 B
+      neostore.propertystore.db.strings.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.relationshipgroupstore.db: 2015-05-10T19:40:00+0200 - 25.00 B
+      neostore.relationshipgroupstore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.relationshipstore.db: 2015-05-10T19:40:00+0200 - 0.00 B
+      neostore.relationshipstore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.relationshiptypestore.db: 2015-05-10T19:40:00+0200 - 0.00 B
+      neostore.relationshiptypestore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.relationshiptypestore.db.names: 2015-05-10T19:40:00+0200 - 38.00 B
+      neostore.relationshiptypestore.db.names.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.schemastore.db: 2015-05-10T19:40:00+0200 - 64.00 B
+      neostore.schemastore.db.id: 2015-05-10T19:40:00+0200 - 9.00 B
+      neostore.transaction.db.0: 2015-05-10T18:56:07+0200 - 814.00 B
+      neostore.transaction.db.1: 2015-05-10T19:36:26+0200 - 16.00 B
+      neostore.transaction.db.2: 2015-05-10T19:40:01+0200 - 16.00 B
+      schema:
+        label:
+          lucene:
+            _0.cfs: 2015-05-10T18:56:07+0200 - 225.00 B
+            segments.gen: 2015-05-10T19:36:21+0200 - 20.00 B
+            segments_1: 2015-05-10T19:36:21+0200 - 250.00 B
+            write.lock: 2015-05-10T19:40:01+0200 - 0.00 B
+          - Total: 2015-05-10T19:40:01+0200 - 495.00 B
+        - Total: 2015-05-10T18:55:51+0200 - 495.00 B
+      - Total: 2015-05-10T18:55:51+0200 - 495.00 B
+      store_lock: 2015-05-10T18:55:48+0200 - 0.00 B
+2015-05-10 17:40:01.421+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles END ---
+2015-05-10 17:40:01.447+0000 INFO  [org.neo4j]: Database is now ready
+2015-05-10 17:40:09.923+0000 INFO  [org.neo4j]: Shutdown started
+2015-05-10 17:40:09.924+0000 INFO  [org.neo4j]: Database is now unavailable
+2015-05-10 17:40:10.902+0000 INFO  [org.neo4j]: NeoStore closed
+2015-05-10 17:40:10.902+0000 INFO  [org.neo4j]: --- STOPPING diagnostics START ---
+2015-05-10 17:40:10.902+0000 INFO  [org.neo4j]: --- STOPPING diagnostics END ---
+2015-05-11 10:08:29.899+0000 INFO  [org.neo4j]: No locking implementation specified, defaulting to 'community'
+2015-05-11 10:08:30.013+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics START ---
+2015-05-11 10:08:30.014+0000 INFO  [org.neo4j]: Neo4j Kernel properties:
+    store_dir=neo4j
+    ephemeral=false
+2015-05-11 10:08:30.018+0000 INFO  [org.neo4j]: Diagnostics providers:
+    org.neo4j.kernel.configuration.Config
+    org.neo4j.kernel.info.DiagnosticsManager
+    SYSTEM_MEMORY
+    JAVA_MEMORY
+    OPERATING_SYSTEM
+    JAVA_VIRTUAL_MACHINE
+    CLASSPATH
+    LIBRARY_PATH
+    SYSTEM_PROPERTIES
+    LINUX_SCHEDULERS
+    NETWORK
+2015-05-11 10:08:30.048+0000 INFO  [org.neo4j]: System memory information:
+    Total Physical memory: 7.58 GB
+    Free Physical memory: 418.72 MB
+    Committed virtual memory: 5.03 GB
+    Total swap space: 6.93 GB
+    Free swap space: 6.93 GB
+2015-05-11 10:08:30.060+0000 INFO  [org.neo4j]: JVM memory information:
+    Free  memory: 97.75 MB
+    Total memory: 116.00 MB
+    Max   memory: 1.68 GB
+    Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+    Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+    Memory Pool: Code Cache (Non-heap memory): committed=2.44 MB, used=817.44 kB, max=48.00 MB, threshold=0.00 B
+    Memory Pool: PS Eden Space (Heap memory): committed=30.50 MB, used=5.08 MB, max=637.00 MB, threshold=?
+    Memory Pool: PS Survivor Space (Heap memory): committed=5.00 MB, used=4.99 MB, max=5.00 MB, threshold=?
+    Memory Pool: PS Old Gen (Heap memory): committed=80.50 MB, used=8.18 MB, max=1.26 GB, threshold=0.00 B
+    Memory Pool: PS Perm Gen (Non-heap memory): committed=21.00 MB, used=18.34 MB, max=166.00 MB, threshold=0.00 B
+2015-05-11 10:08:30.067+0000 INFO  [org.neo4j]: Operating system information:
+    Operating System: Linux; version: 3.13.0-52-generic; arch: amd64; cpus: 8
+    Max number of file descriptors: 4096
+    Number of open file descriptors: 107
+    Process id: 11377@sirolf2009-ubuntu
+    Byte order: LITTLE_ENDIAN
+    Local timezone: Europe/Amsterdam
+2015-05-11 10:08:30.068+0000 INFO  [org.neo4j]: JVM information:
+    VM Name: OpenJDK 64-Bit Server VM
+    VM Vendor: Oracle Corporation
+    VM Version: 24.79-b02
+    JIT compiler: HotSpot 64-Bit Tiered Compilers
+    VM Arguments: [-Dfile.encoding=UTF-8]
+2015-05-11 10:08:30.069+0000 INFO  [org.neo4j]: Java classpath:
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b10/javax.inject-2.4.0-b10.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.17/jersey-guava-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/httpcomponents/httpcore/4.2.4/httpcore-4.2.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar
+     [classpath] /usr/local/bin/eclipse Luna/plugins/org.hamcrest.core_1.3.0.v201303031735.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/2.17/jersey-entity-filtering-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/zipfs.jar
+     [loader.1] file:/usr/lib/x86_64-linux-gnu/jni/libatk-wrapper.so.0.0.18
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-lucene-index/2.2.0-M04/neo4j-lucene-index-2.2.0-M04.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher/2.2.0-M04/neo4j-cypher-2.2.0-M04.jar
+     [classpath] /home/sirolf2009/Java Projects/bean-tx/target/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b10/hk2-locator-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-scala_2.10/1.1.6/parboiled-scala_2.10-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-io/2.2.0-M04/neo4j-io-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j/2.2.0-M04/neo4j-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/cjsavage/JNetDiscovery/1.0/JNetDiscovery-1.0.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.1/2.1.6/neo4j-cypher-compiler-2.1-2.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-csv/2.2.0-M04/neo4j-csv-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http/2.3.16/grizzly-http-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/thrift/libthrift/0.9.2/libthrift-0.9.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-matching/2.2.0-M04/neo4j-graph-matching-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.17/jersey-media-jaxb-2.17.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b10/hk2-api-2.4.0-b10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-common/2.17/jersey-common-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.3.2/jackson-jaxrs-json-provider-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service/target/classes/
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.3.2/jackson-module-jaxb-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.3.2/jackson-jaxrs-base-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/apache/lucene/lucene-core/3.6.2/lucene-core-3.6.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-udc/2.2.0-M04/neo4j-udc-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b10/aopalliance-repackaged-2.4.0-b10.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/dnsns.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-primitive-collections/2.2.0-M04/neo4j-primitive-collections-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-client/2.17/jersey-client-2.17.jar
+     [loader.0] file:/usr/local/bin/eclipse%20Luna/plugins/org.junit_4.11.0.v201303080030/junit.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-1.9/2.0.4/neo4j-cypher-compiler-1.9-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-kernel/2.2.0-M04/neo4j-kernel-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/2.17/jersey-media-json-jackson-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-framework/2.3.16/grizzly-framework-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4/concurrentlinkedhashmap-lru-1.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/core/jersey-server/2.17/jersey-server-2.17.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.0/2.0.4/neo4j-cypher-compiler-2.0-2.0.4.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-http/2.17/jersey-container-grizzly2-http-2.17.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/grizzly/grizzly-http-server/2.3.16/grizzly-http-server-2.3.16.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-jmx/2.2.0-M04/neo4j-jmx-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-graph-algo/2.2.0-M04/neo4j-graph-algo-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b10/hk2-utils-2.4.0-b10.jar
+     [loader.0] file:/home/sirolf2009/Java%20Projects/bean-tx/target/classes/
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/classes
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar
+     [bootstrap] /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/parboiled/parboiled-core/1.1.6/parboiled-core-1.1.6.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.2/2.2.0-M04/neo4j-cypher-compiler-2.2-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.jar
+     [loader.1] file:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext/localedata.jar
+     [classpath + loader.0] file:/home/sirolf2009/.m2/repository/org/neo4j/neo4j-consistency-check/2.2.0-M04/neo4j-consistency-check-2.2.0-M04.jar
+     [classpath + loader.0] file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-core/target/classes/
+2015-05-11 10:08:30.071+0000 INFO  [org.neo4j]: Library path:
+    /usr/java/packages/lib/amd64
+    /usr/lib/x86_64-linux-gnu/jni
+    /lib/x86_64-linux-gnu
+    /usr/lib/x86_64-linux-gnu
+    /usr/lib/jni
+    /lib
+    /usr/lib
+2015-05-11 10:08:30.071+0000 INFO  [org.neo4j]: System.properties:
+    sun.boot.library.path = /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64
+    path.separator = :
+    file.encoding.pkg = sun.io
+    user.country = US
+    sun.java.launcher = SUN_STANDARD
+    sun.os.patch.level = unknown
+    user.dir = /home/sirolf2009/git/Jenkins/medical-vision/medical-vision-service
+    sun.jnu.encoding = UTF-8
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    user.home = /home/sirolf2009
+    user.timezone = Europe/Amsterdam
+    file.encoding = UTF-8
+    user.name = sirolf2009
+    sun.java.command = org.medicalvision.service.Main
+    sun.arch.data.model = 64
+    user.language = en
+    awt.toolkit = sun.awt.X11.XToolkit
+    file.separator = /
+    sun.io.unicode.encoding = UnicodeLittle
+    sun.cpu.endian = little
+    sun.desktop = gnome
+    sun.cpu.isalist = 
+2015-05-11 10:08:30.081+0000 INFO  [org.neo4j]: Linux scheduler information:
+    noop [deadline] cfq 
+    noop [deadline] cfq 
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+2015-05-11 10:08:30.084+0000 INFO  [org.neo4j]: Network information:
+    Interface docker0:
+        address: 172.17.42.1
+    Interface vmnet8:
+        address: fe80:0:0:0:250:56ff:fec0:8%7
+        address: 172.16.177.1
+    Interface vmnet1:
+        address: fe80:0:0:0:250:56ff:fec0:1%6
+        address: 172.16.113.1
+    Interface wlan0:
+        address: fe80:0:0:0:8200:bff:fe2e:935c%3
+        address: 145.24.200.116
+    Interface lo:
+        address: 0:0:0:0:0:0:0:1%1
+        address: 127.0.0.1
+2015-05-11 10:08:30.085+0000 INFO  [org.neo4j]: --- INITIALIZED diagnostics END ---
+2015-05-11 10:08:31.429+0000 INFO  [org.neo4j]: Opened logical log [neo4j/neostore.transaction.db.3] version=3, lastTxId=6 (clean)
+2015-05-11 10:08:34.495+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions START ---
+2015-05-11 10:08:34.495+0000 INFO  [org.neo4j]: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId{creationTime=1431276948247, randomId=805554097173310708, storeVersion=14969031248344582, upgradeTime=1431276948247, upgradeId=1}
+2015-05-11 10:08:34.495+0000 INFO  [org.neo4j]: Kernel version: Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04
+2015-05-11 10:08:34.495+0000 INFO  [org.neo4j]: Neo4j component versions:
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Lucene Index (neo4j-lucene-index), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.1 (neo4j-cypher-compiler-2.1), version: 2.1.6; revision: 2.1.6:2.1-maint:605/0d7f25fc608f15c54ec1a01f4ba4564ebfb1071a
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Consistency Checker (neo4j-consistency-check), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Graph Algorithms (neo4j-graph-algo), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.0 (neo4j-cypher-compiler-2.0), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 2.2 (neo4j-cypher-compiler-2.2), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Cypher Compiler 1.9 (neo4j-cypher-compiler-1.9), version: 2.0.4; revision: 2.0.4:2.0-maint:130/4a7d10bc274a5d26a180bbe9df25100e8a694748
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   neo4j-udc, version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - JMX support (neo4j-jmx), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Graph Matching (neo4j-graph-matching), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Graph Database Kernel (neo4j-kernel), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.500+0000 INFO  [org.neo4j]:   Neo4j - Cypher (neo4j-cypher), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.501+0000 INFO  [org.neo4j]:   Neo4j - Community (neo4j), version: 2.2.0-M04; revision: 2.2.0-M04:master:696/290a9bebf022a8c59aefc79b7f1d1fa0a36b26f4
+2015-05-11 10:08:34.501+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:Versions END ---
+2015-05-11 10:08:34.502+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS START ---
+2015-05-11 10:08:34.503+0000 INFO  [org.neo4j]: Store versions:
+    Store versions:
+      NeoStore v0.A.5
+      SchemaStore v0.A.5
+      NodeStore v0.A.5
+      RelationshipStore v0.A.5
+      RelationshipTypeStore v0.A.5
+      LabelTokenStore v0.A.5
+      PropertyStore v0.A.5
+      PropertyIndexStore v0.A.5
+      StringPropertyStore v0.A.5
+      ArrayPropertyStore v0.A.5
+      RelationshipGroupStore v0.A.5
+2015-05-11 10:08:34.503+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_VERSIONS END ---
+2015-05-11 10:08:34.503+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE START ---
+2015-05-11 10:08:34.503+0000 INFO  [org.neo4j]: Id usage:
+    Id usage:
+      SchemaStore: used=1 high=0
+      NodeStore: used=1 high=0
+      RelationshipStore: used=0 high=-1
+      RelationshipTypeStore: used=0 high=-1
+      LabelTokenStore: used=1 high=0
+      PropertyStore: used=2 high=1
+      PropertyIndexStore: used=3 high=2
+      StringPropertyStore: used=2 high=1
+      ArrayPropertyStore: used=1 high=0
+      RelationshipGroupStore: used=1 high=0
+2015-05-11 10:08:34.504+0000 INFO  [org.neo4j]: --- STARTED diagnostics for NEO_STORE_ID_USAGE END ---
+2015-05-11 10:08:34.505+0000 INFO  [org.neo4j]: --- STARTED diagnostics for KernelDiagnostics:StoreFiles START ---
+2015-05-11 10:08:34.505+0000 INFO  [org.neo4j]: Disk space on partition (Total / Free / Free %): 241498349568 / 20106014720 / 8
+Storage files: (filename : modification date - size)
+      index:
+      - Total: 2015-05-10T18:55:48+0200 - 0.00 B
+      lock: 2015-05-11T12:08:30+0200 - 0.00 B
+      messages.log: 2015-05-11T12:08:34+0200 - 86.79 kB
+      neostore: 2015-05-11T12:08:30+0200 - 99.00 B
+      neostore.counts.db.a: 2015-05-10T19:36:21+0200 - 178.00 B
+      neostore.counts.db.b: 2015-05-10T18:55:51+0200 - 114.00 B
+      neostore.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.labeltokenstore.db: 2015-05-11T12:08:30+0200 - 5.00 B
+      neostore.labeltokenstore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.labeltokenstore.db.names: 2015-05-11T12:08:30+0200 - 76.00 B
+      neostore.labeltokenstore.db.names.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.nodestore.db: 2015-05-11T12:08:30+0200 - 15.00 B
+      neostore.nodestore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.nodestore.db.labels: 2015-05-11T12:08:30+0200 - 68.00 B
+      neostore.nodestore.db.labels.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.propertystore.db: 2015-05-11T12:08:30+0200 - 82.00 B
+      neostore.propertystore.db.arrays: 2015-05-11T12:08:30+0200 - 128.00 B
+      neostore.propertystore.db.arrays.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.propertystore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.propertystore.db.index: 2015-05-11T12:08:30+0200 - 27.00 B
+      neostore.propertystore.db.index.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.propertystore.db.index.keys: 2015-05-11T12:08:30+0200 - 152.00 B
+      neostore.propertystore.db.index.keys.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.propertystore.db.strings: 2015-05-11T12:08:30+0200 - 256.00 B
+      neostore.propertystore.db.strings.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.relationshipgroupstore.db: 2015-05-11T12:08:30+0200 - 25.00 B
+      neostore.relationshipgroupstore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.relationshipstore.db: 2015-05-11T12:08:30+0200 - 0.00 B
+      neostore.relationshipstore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.relationshiptypestore.db: 2015-05-11T12:08:30+0200 - 0.00 B
+      neostore.relationshiptypestore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.relationshiptypestore.db.names: 2015-05-11T12:08:30+0200 - 38.00 B
+      neostore.relationshiptypestore.db.names.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.schemastore.db: 2015-05-11T12:08:30+0200 - 64.00 B
+      neostore.schemastore.db.id: 2015-05-11T12:08:30+0200 - 9.00 B
+      neostore.transaction.db.0: 2015-05-10T18:56:07+0200 - 814.00 B
+      neostore.transaction.db.1: 2015-05-10T19:36:26+0200 - 16.00 B
+      neostore.transaction.db.2: 2015-05-10T19:40:01+0200 - 16.00 B
+      neostore.transaction.db.3: 2015-05-11T12:08:31+0200 - 16.00 B
+      schema:
+        label:
+          lucene:
+            _0.cfs: 2015-05-10T18:56:07+0200 - 225.00 B
+            segments.gen: 2015-05-10T19:36:21+0200 - 20.00 B
+            segments_1: 2015-05-10T19:36:21+0200 - 250.00 B
+            write.lock: 2015-05-11T12:08:31+0200 - 0.00 B
+          - Total: 2015-05-11T12:08:31+0200 - 495.00 B
+        - Total: 2015-05-10T18:55:51+0200 - 495.00 B
+      - Total: 2015-05-10T18:55:51+0200 - 495.00 B
+      store_lock: 2015-05-10T18:55:48+0200 - 0.00 B

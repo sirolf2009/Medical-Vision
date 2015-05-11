@@ -1,20 +1,17 @@
 package org.medicalvision.service.paths;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.server.core.model.Task;
-import org.medicalvision.server.core.model.TaskType;
+import org.medicalvision.service.Main;
 
 @Path("/task")
+@Produces(MediaType.APPLICATION_JSON)
 public class ServiceTask {
-	
-	public static List<Task> tasks = new ArrayList<Task>();
 
 	@GET
 	@Path("/")
@@ -23,43 +20,22 @@ public class ServiceTask {
     }
 	
 	@GET
-	@Path("all")
-    public Task get() {
-    	Employee employee = new Employee();
-    	employee.setFirstName("Floris");
-    	employee.setLastName("Thijssen");
-    	Task task = new Task();
-    	task.setEmployee(employee);
-    	task.setType(TaskType.CLEAN_BED);
-        return task;
+	@Path("/add/{employeeID}/{taskType}")
+    public long add(@PathParam("employeeID") long employeeID, @PathParam("taskType") String taskType) {
+    	return Main.databaseManager.pushTask(new Task(employeeID, taskType));
     }
 	
 	@GET
-	@Path("test")
-    public Employee getTest() {
-    	Employee employee = new Employee();
-    	employee.setFirstName("Floris");
-    	employee.setLastName("Thijssen");
-        return employee;
+	@Path("/get/{taskID}")
+    public Task add(@PathParam("taskID") long taskID) {
+    	return Main.databaseManager.pullTask(taskID);
     }
 	
 	@GET
-	@Path("/add/{ID}")
-    public Task add(@PathParam("ID") String ID) {
-    	Employee employee = new Employee();
-    	employee.setFirstName(ID);
-    	employee.setLastName("Thijssen");
-    	Task task = new Task();
-        return task;
-    }
-	
-	@GET
-	@Path("/add/{ID}/{USER}")
-    public Task add(@PathParam("ID") String ID, @PathParam("USER") String USER) {
-    	Employee employee = new Employee();
-    	employee.setFirstName(USER);
-    	Task task = new Task();
-        return task;
+	@Path("/remove/{taskID}")
+    public String remove(@PathParam("taskID") long taskID) {
+    	Main.databaseManager.removeTask(taskID);
+    	return "removed "+taskID;
     }
 	
 }
