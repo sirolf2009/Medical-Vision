@@ -10,7 +10,7 @@ struct Patient {
 	2: required string lastName;
 }
 
-service medicalVision {
+service MedicalVision {
 
 	void startTask(1: Task task)
 }
