@@ -47,12 +47,12 @@
 			<artifactId>neo4j</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.cjsavage</groupId>
-			<artifactId>JNetDiscovery</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.thrift</groupId>
 			<artifactId>libthrift</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>kryonet</groupId>
+			<artifactId>kryonet</artifactId>
 		</dependency>
 	</dependencies>
 

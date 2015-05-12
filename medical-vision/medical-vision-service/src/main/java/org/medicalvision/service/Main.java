@@ -12,7 +12,6 @@ import org.medicalvision.server.core.Configuration;
 public class Main {
 	
 	public static DatabaseManager databaseManager;
-	public static Announcer announcer;
 	
 	public static HttpServer startServer() {
     	Configuration config = Configuration.getInstance();
@@ -28,8 +27,7 @@ public class Main {
         final HttpServer server = startServer();
     	Configuration config = Configuration.getInstance();
     	databaseManager = new DatabaseManager();
-    	announcer = new Announcer();
-    	new Thread(announcer, "Service Announcer").start();
+    	
     	
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", config.SERVER_BASE_URI));

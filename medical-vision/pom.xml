@@ -21,6 +21,10 @@
 			<url>file:medical-vision/medical-vision-core/repo</url>
 			<name>CJ</name>
 		</repository>
+		<repository>
+			<id>clojars</id>
+			<url>http://clojars.org/repo/</url>
+		</repository>
 	</repositories>
 
 	<dependencyManagement>
@@ -92,14 +96,14 @@
 				<version>1.2</version>
 			</dependency>
 			<dependency>
-				<groupId>com.cjsavage</groupId>
-				<artifactId>JNetDiscovery</artifactId>
-				<version>1.0</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.thrift</groupId>
 				<artifactId>libthrift</artifactId>
 				<version>0.9.2</version>
+			</dependency>
+			<dependency>
+				<groupId>kryonet</groupId>
+				<artifactId>kryonet</artifactId>
+				<version>2.21</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
