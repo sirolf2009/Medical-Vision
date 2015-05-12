@@ -14,13 +14,13 @@
 		<module></module>
 		<module>dashboard</module>
 	</modules>
-	
+
 	<repositories>
 		<repository>
-        <id>CJ</id>
-        <url>file:medical-vision/medical-vision-core/repo</url>
-        <name>CJ</name>       
-     </repository>
+			<id>CJ</id>
+			<url>file:medical-vision/medical-vision-core/repo</url>
+			<name>CJ</name>
+		</repository>
 	</repositories>
 
 	<dependencyManagement>

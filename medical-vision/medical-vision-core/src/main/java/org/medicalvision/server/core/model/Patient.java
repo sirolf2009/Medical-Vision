@@ -1,15 +1,21 @@
 package org.medicalvision.server.core.model;
 
-public class Patient extends Person {
+public class Patient {
+
+	private String firstName;
+	private String lastName;
 	
-	private String bsn;
-
-	public String getBsn() {
-		return bsn;
+	public String getFirstName() {
+		return firstName;
 	}
-
-	public void setBsn(String bsn) {
-		this.bsn = bsn;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
 }

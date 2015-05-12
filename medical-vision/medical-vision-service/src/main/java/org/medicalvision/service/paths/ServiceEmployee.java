@@ -27,19 +27,19 @@ public class ServiceEmployee {
 		Employee employee = new Employee();
 		employee.setFirstName(firstName);
 		employee.setLastName(lastName);
-		return Main.databaseManager.pushEmployee(employee);
+		return Main.databaseManager.getEmployeeManager().push(employee);
 	}
 
 	@GET
 	@Path("/get/{ID}")
 	public Employee addEmployee(@PathParam("ID") long id) {
-		return Main.databaseManager.pullEmployee(id);
+		return Main.databaseManager.getEmployeeManager().pull(id);
 	}
 
 	@GET
 	@Path("/all")
 	public List<Employee> all() {
-		return Main.databaseManager.getAllEmployees();
+		return Main.databaseManager.getEmployeeManager().all();
 	}
 
 }

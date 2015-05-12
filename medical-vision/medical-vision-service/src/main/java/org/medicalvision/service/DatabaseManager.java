@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.medicalvision.server.core.model.Employee;
+import org.medicalvision.server.core.model.Patient;
 import org.medicalvision.server.core.model.Task;
 import org.neo4j.graphdb.DynamicLabel;
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -12,57 +13,96 @@ import org.neo4j.graphdb.ResourceIterator;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
-import com.sirolf2009.beantx.BeanTX;
+import com.sirolf2009.beantx.BeanTx;
 
 public class DatabaseManager {
 
 	private GraphDatabaseService service;
-	private BeanTX beanTX;
+	private BeanTx beanTx;
+	private final Manager<Task> taskManager;
+	private final Manager<Employee> employeeManager;
+	private final Manager<Patient> patientManager;
 
 	public DatabaseManager() {
-		service = new GraphDatabaseFactory().newEmbeddedDatabase("neo4j");
+		setService(new GraphDatabaseFactory().newEmbeddedDatabase("neo4j"));
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
 			public void run() {
-				service.shutdown();
+				getService().shutdown();
 			}
 		});
-		beanTX = new BeanTX(service);
+		setBeanTx(new BeanTx(getService()));
+		taskManager = new Manager<Task>("Task");
+		employeeManager = new Manager<Employee>("Employee");
+		patientManager = new Manager<Patient>("Patient");
 	}
 
-	public long pushEmployee(Employee employee) {
-		return beanTX.pushBean(employee, "Employee");
-	}
-	
-	public Employee pullEmployee(long id) {
-		return (Employee) beanTX.pullBean(id);
+	public Manager<Task> getTaskManager() {
+		return taskManager;
 	}
 
-	public long pushTask(Task task) {
-		return beanTX.pushBean(task, "Task");
+	public Manager<Employee> getEmployeeManager() {
+		return employeeManager;
+	}
+
+	public Manager<Patient> getPatientManager() {
+		return patientManager;
 	}
 	
-	public Task pullTask(long id) {
-		return (Task) beanTX.pullBean(id);
+	public GraphDatabaseService getService() {
+		return service;
 	}
-	
-	public void removeTask(long id) {
-		try(Transaction tx = service.beginTx()) {
-			service.getNodeById(id).delete();
+
+	public void setService(GraphDatabaseService service) {
+		this.service = service;
+	}
+
+	public BeanTx getBeanTx() {
+		return beanTx;
+	}
+
+	public void setBeanTx(BeanTx beanTX) {
+		this.beanTx = beanTX;
+	}
+
+	@SuppressWarnings("unchecked")
+	public class Manager<E> {
+		
+		private String[] labels;
+		
+		public Manager(String... labels) {
+			this.labels = labels;
 		}
-	}
-
-	public List<Employee> getAllEmployees() {
-		List<Employee> employees = new ArrayList<Employee>();
-		try(Transaction tx = service.beginTx()) {
-			ResourceIterator<Node> itr = service.findNodes(DynamicLabel.label("Employee"));
-			while(itr.hasNext()) {
-				Node node = itr.next();
-				employees.add(pullEmployee(node.getId()));
+		
+		public long push(E bean) {
+			return getBeanTx().pushBean(bean, labels);
+		}
+		
+		public E pull(long ID) {
+			return (E) getBeanTx().pullBean(ID);
+		}
+		
+		public List<E> all() { //TODO placeholder until beanTx support
+			List<E> objects = new ArrayList<E>();
+			try(Transaction tx = getService().beginTx()) {
+				ResourceIterator<Node> itr = getService().findNodes(DynamicLabel.label(getBeanTx().combineLabels(labels)));
+				while(itr.hasNext()) {
+					Node node = itr.next();
+					objects.add((E) pull(node.getId()));
+				}
+				itr.close();
+				tx.success();
 			}
-			itr.close();
+			return objects;
 		}
-		return employees;
+		
+		public void remove(long id) { //TODO placeholder until beanTx support
+			try(Transaction tx = getService().beginTx()) {
+				getService().getNodeById(id).delete();
+				tx.success();
+			}
+		}
+		
 	}
-
+	
 }

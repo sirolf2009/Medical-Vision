@@ -2,21 +2,23 @@ package org.medicalvision.server.core.model;
 
 public class Task {
 
-	private long employee;
+	private Employee employee;
+	private Patient patient;
 	private String type;
 	
 	public Task() {}
 	
-	public Task(long employee, String type) {
-		setEmployee(employee);
-		setType(type);
-	}
-	
-	public long getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
-	public void setEmployee(long employee) {
+	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+	public Patient getPatient() {
+		return patient;
+	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 	public String getType() {
 		return type;

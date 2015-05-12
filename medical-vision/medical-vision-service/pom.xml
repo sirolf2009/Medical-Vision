@@ -12,13 +12,13 @@
 
 	<artifactId>medical-vision-service</artifactId>
 	<name>medical-vision-service</name>
-	
+
 	<repositories>
 		<repository>
-        <id>CJ</id>
-        <url>file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-core/repo</url>
-        <name>CJ</name>       
-     </repository>
+			<id>CJ</id>
+			<url>file:/home/sirolf2009/git/Jenkins/medical-vision/medical-vision-core/repo</url>
+			<name>CJ</name>
+		</repository>
 	</repositories>
 
 	<dependencies>
