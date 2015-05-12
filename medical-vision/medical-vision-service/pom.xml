@@ -54,6 +54,10 @@
 			<groupId>kryonet</groupId>
 			<artifactId>kryonet</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.esotericsoftware</groupId>
+			<artifactId>kryo</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

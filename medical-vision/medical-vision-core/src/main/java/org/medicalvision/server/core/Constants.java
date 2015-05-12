@@ -1,5 +1,8 @@
 package org.medicalvision.server.core;
 
+import org.medicalvision.server.core.kryo.PacketIP;
+import org.medicalvision.server.core.model.Employee;
+
 public class Constants {
 
 	public static final String CONFIG_SERVER = "server.xml";
@@ -25,5 +28,10 @@ public class Constants {
 	public static final int CONFIG_PORT_END_DEFAULT_KRYO = 8100;
 	
     public static final String SERVICE_ID = "45e643d7d66ffeb36ecebd0fd28c043acc02de82e6e92872758515b9f4fd2d70c4d1187db8ec68989f7c1d8a315f58ca03b86567651dab94b40f7a534af870f6";
+    
+    public static final Class<?>[] KRYO_PACKETS = new Class<?>[] {
+    	PacketIP.class,
+    	Employee.class
+    };
 
 }

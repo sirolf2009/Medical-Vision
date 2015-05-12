@@ -8,9 +8,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.thrift.TException;
 import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.server.core.model.Task;
 import org.medicalvision.service.Main;
+import org.medicalvision.service.thrift.Client;
 
 @Path("/task")
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,12 +26,18 @@ public class ServiceTask {
 
 	@GET
 	@Path("/add/{employeeID}/{patientID}/{taskType}")
-	public long add(@PathParam("employeeID") long employeeID, @PathParam("patientID") long patientID, @PathParam("taskType") String taskType) {
+	public String add(@PathParam("employeeID") long employeeID, @PathParam("patientID") long patientID, @PathParam("taskType") String taskType) {
 		Employee employee = Main.databaseManager.getEmployeeManager().pull(employeeID);
 		Task task = new Task();
 		task.setEmployee(employee);
 		task.setPatient(Main.databaseManager.getPatientManager().pull(patientID));
-		return Main.databaseManager.getTaskManager().push(task); //TODO make thrift call
+		try {
+			new Client(Main.onlineEmployees.get(employee)).notifyOfTask(task);
+			return Main.databaseManager.getTaskManager().push(task)+"";
+		} catch (TException e) {
+			e.printStackTrace();
+			return e.getMessage();
+		}
 	}
 
 	@GET
