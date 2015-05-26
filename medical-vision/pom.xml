@@ -10,9 +10,7 @@
 	<modules>
 		<module>medical-vision-core</module>
 		<module>medical-vision-service</module>
-
-		<module></module>
-		<module>dashboard</module>
+		<module>medical-vision-dashboard</module>
 	</modules>
 
 	<repositories>
@@ -109,6 +107,26 @@
 				<groupId>com.esotericsoftware</groupId>
 				<artifactId>kryo</artifactId>
 				<version>3.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sparkjava</groupId>
+				<artifactId>spark-core</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>1.5.8</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.encog</groupId>
+				<artifactId>encog-core</artifactId>
+				<version>3.3.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

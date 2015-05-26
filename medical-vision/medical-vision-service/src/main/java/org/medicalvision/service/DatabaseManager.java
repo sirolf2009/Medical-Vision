@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.server.core.model.Patient;
+import org.medicalvision.server.core.model.SensorData;
 import org.medicalvision.server.core.model.Task;
 import org.neo4j.graphdb.DynamicLabel;
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -12,8 +13,11 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.ResourceIterator;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sirolf2009.beantx.BeanTx;
+import com.sirolf2009.beantx.BeanUtil;
 
 public class DatabaseManager {
 
@@ -22,6 +26,9 @@ public class DatabaseManager {
 	private final Manager<Task> taskManager;
 	private final Manager<Employee> employeeManager;
 	private final Manager<Patient> patientManager;
+	private final Manager<SensorData> sensorManager;
+	
+	private static final Logger log = LoggerFactory.getLogger(DatabaseManager.class.getSimpleName());
 
 	public DatabaseManager() {
 		setService(new GraphDatabaseFactory().newEmbeddedDatabase("neo4j"));
@@ -35,6 +42,7 @@ public class DatabaseManager {
 		taskManager = new Manager<Task>("Task");
 		employeeManager = new Manager<Employee>("Employee");
 		patientManager = new Manager<Patient>("Patient");
+		sensorManager = new Manager<SensorData>("SensorData");
 	}
 
 	public Manager<Task> getTaskManager() {
@@ -65,6 +73,10 @@ public class DatabaseManager {
 		this.beanTx = beanTX;
 	}
 
+	public Manager<SensorData> getSensorManager() {
+		return sensorManager;
+	}
+
 	@SuppressWarnings("unchecked")
 	public class Manager<E> {
 		
@@ -75,6 +87,7 @@ public class DatabaseManager {
 		}
 		
 		public long push(E bean) {
+			log.info("Adding: "+bean);
 			return getBeanTx().pushBean(bean, labels);
 		}
 		
@@ -85,7 +98,7 @@ public class DatabaseManager {
 		public List<E> all() { //TODO placeholder until beanTx support
 			List<E> objects = new ArrayList<E>();
 			try(Transaction tx = getService().beginTx()) {
-				ResourceIterator<Node> itr = getService().findNodes(DynamicLabel.label(getBeanTx().combineLabels(labels)));
+				ResourceIterator<Node> itr = getService().findNodes(DynamicLabel.label(BeanUtil.combineLabels(labels)));
 				while(itr.hasNext()) {
 					Node node = itr.next();
 					objects.add((E) pull(node.getId()));
@@ -101,6 +114,10 @@ public class DatabaseManager {
 				getService().getNodeById(id).delete();
 				tx.success();
 			}
+		}
+		
+		public void remove(Object bean) {
+			getBeanTx().deleteBean(bean);
 		}
 		
 	}

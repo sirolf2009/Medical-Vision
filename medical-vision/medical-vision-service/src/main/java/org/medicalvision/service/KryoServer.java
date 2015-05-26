@@ -24,7 +24,7 @@ public class KryoServer {
 			public void received (Connection connection, Object object) {
 				if (object instanceof PacketIP) {
 					PacketIP ip = (PacketIP) object;
-					Main.onlineEmployees.put(ip.getEmployee(), ip.getMobileIP());
+					MVService.onlineEmployees.put(ip.getEmployee(), ip.getMobileIP());
 				}
 			}
 		});
