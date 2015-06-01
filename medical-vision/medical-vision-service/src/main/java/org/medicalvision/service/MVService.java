@@ -1,5 +1,6 @@
 package org.medicalvision.service;
-import static spark.Spark.*;
+import static spark.Spark.exception;
+import static spark.Spark.get;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +16,12 @@ import spark.ExceptionHandler;
 import spark.Request;
 import spark.Response;
 
+import com.esotericsoftware.kryonet.Connection;
 import com.google.gson.Gson;
 
 public class MVService {
 
-	public static final Map<Employee, String> onlineEmployees = new HashMap<Employee, String>();
+	public static final Map<Employee, Connection> onlineEmployees = new HashMap<Employee, Connection>();
 	public static final DatabaseManager databaseManager = new DatabaseManager();
 	public static final Gson gson = new Gson();
 
@@ -49,6 +51,8 @@ public class MVService {
 				response.body("500 Internal Server Error\n"+exception);
 			}
 		});
+		
+		new KryoServer();
 	}
 
 	public static void addRoute(String root, String getUrl, MVRoute<?> route) {

@@ -16,8 +16,8 @@ public class Configuration {
 	public String THRIFT_STORE_KEY;
 	public String THRIFT_STORE_TRUST;
 
-	public int KRYO_PORT_START;
-	public int KRYO_PORT_END;
+	public int KRYO_PORT;
+	public int KTYO_TIMEOUT;
 	
 	private Configuration() {}
 	
@@ -47,8 +47,8 @@ public class Configuration {
 	public void loadKryoConfig() {
     	try {
 			XMLConfiguration config = new XMLConfiguration(CONFIG_KRYO);
-			KRYO_PORT_START = config.getInt(CONFIG_PORT_START, CONFIG_PORT_START_DEFAULT_KRYO);
-			KRYO_PORT_END = config.getInt(CONFIG_PORT_END, CONFIG_PORT_END_DEFAULT_KRYO);
+			KRYO_PORT = config.getInt(CONFIG_PORT, CONFIG_PORT_DEFAULT_KRYO);
+			KTYO_TIMEOUT = config.getInt(CONFIG_TIMOUT, CONFIG_TIMOUT_DEFAULT_KRYO);
 			config.save();
 		} catch (ConfigurationException e) {
 			e.printStackTrace();
