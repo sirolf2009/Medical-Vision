@@ -6,11 +6,12 @@ import static org.medicalvision.service.Util.paramAsLong;
 import org.medicalvision.server.core.model.Task;
 import org.medicalvision.service.DatabaseManager.Manager;
 import org.medicalvision.service.MVService;
-import org.medicalvision.service.thrift.Client;
 
 import spark.Request;
 import spark.Response;
 import spark.Route;
+
+import com.esotericsoftware.kryonet.Connection;
 
 public class RouteTask extends MVRoute<Task> {
 
@@ -23,8 +24,8 @@ public class RouteTask extends MVRoute<Task> {
 				task.setType(request.params(":firstname"));
 				task.setEmployee(databaseManager.getEmployeeManager().pull(paramAsLong(request, ":employeeID")));
 				task.setPatient(databaseManager.getPatientManager().pull(paramAsLong(request, ":patientID")));
-				String ip = MVService.onlineEmployees.get(databaseManager.getEmployeeManager().pull(paramAsLong(request, ":employeeID")));
-				new Client(ip).notifyOfTask(task);
+				Connection conn = MVService.onlineEmployees.get(databaseManager.getEmployeeManager().pull(paramAsLong(request, ":employeeID")));
+				conn.sendTCP(task);
 				return databaseManager.getTaskManager().push(task);
 			}
 		};
