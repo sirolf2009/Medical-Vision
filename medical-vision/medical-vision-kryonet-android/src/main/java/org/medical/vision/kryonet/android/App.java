@@ -24,6 +24,9 @@ public class App
     	Client client = new Client();
     	client.start();
 
+    	
+    	
+    	
     	client.getKryo().register(PacketIP.class);
     	client.getKryo().register(Task.class);
     	client.getKryo().register(Employee.class);
