@@ -1,13 +1,16 @@
 package org.medical.vision.neural;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.mllib.ann.FeedForwardModel;
 import org.apache.spark.mllib.ann.FeedForwardTrainer;
 import org.apache.spark.mllib.ann.Topology;
+import org.apache.spark.mllib.linalg.DenseVector;
 import org.apache.spark.mllib.linalg.Vector;
 import org.apache.spark.rdd.RDD;
+import org.medicalvision.server.core.model.NeuralInput;
 
 import scala.Tuple2;
 
@@ -22,17 +25,19 @@ public class MVNetwork {
 	private final Topology topology;
 	private int numIterations;
 	private FeedForwardModel neuralNetwork;
+	private List<Integer> indexes;
 
-	public MVNetwork(JavaSparkContext sparkContext, int inputSize, int outputSize) {
-		this(sparkContext, null, inputSize, outputSize);
+	public MVNetwork(JavaSparkContext sparkContext, int inputSize, int outputSize, List<Integer> indexes) {
+		this(sparkContext, null, inputSize, outputSize, indexes);
 	}
 
-	public MVNetwork(JavaSparkContext sparkContext, RDD<Tuple2<Vector, Vector>> trainingSet, int inputSize, int outputSize) {
+	public MVNetwork(JavaSparkContext sparkContext, RDD<Tuple2<Vector, Vector>> trainingSet, int inputSize, int outputSize, List<Integer> indexes) {
 		setSparkContext(sparkContext);
 		setTrainingSet(trainingSet);
 		setInputSize(inputSize);
 		setOutputSize(outputSize);
 		setHiddenLayerSize(inputSize*2);
+		setIndexes(indexes);
 		
 		topology = Topology.multiLayerPerceptron(new int[] {2, 4, 1}, false);
 		FeedForwardModel model = FeedForwardModel.apply(getTopology(), 4567);
@@ -50,6 +55,19 @@ public class MVNetwork {
 		trainer.setWeights(getInitialWeights());
 		trainer.LBFGSOptimizer().setNumIterations(getNumIterations());
 		setNeuralNetwork(trainer.train(getTrainingSet()));
+	}
+	
+	public Vector get(NeuralInput input) {
+		double[] values = input.toArray();
+		List<Double> valuesList = new ArrayList<Double>();
+		for(int index : indexes) {
+			valuesList.add(values[index]);
+		}
+		values = new double[valuesList.size()];
+		for(int i = 0; i < valuesList.size(); i++) {
+			values[i] = valuesList.get(i);
+		}
+		return get(new DenseVector(values));
 	}
 	
 	public Vector get(Vector input) {
@@ -129,6 +147,14 @@ public class MVNetwork {
 
 	public void setNeuralNetwork(FeedForwardModel neuralNetwork) {
 		this.neuralNetwork = neuralNetwork;
+	}
+
+	public List<Integer> getIndexes() {
+		return indexes;
+	}
+
+	public void setIndexes(List<Integer> indexes) {
+		this.indexes = indexes;
 	}
 
 }

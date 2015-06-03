@@ -141,6 +141,11 @@
 				<version>1.4.0-SNAPSHOT</version>
 				<type>jar</type>
 			</dependency>
+			<dependency>
+				<groupId>org.medicalvision</groupId>
+				<artifactId>medical-vision-neural</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

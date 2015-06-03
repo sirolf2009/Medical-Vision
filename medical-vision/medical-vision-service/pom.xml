@@ -74,6 +74,10 @@
 			<groupId>org.encog</groupId>
 			<artifactId>encog-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.medicalvision</groupId>
+			<artifactId>medical-vision-neural</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

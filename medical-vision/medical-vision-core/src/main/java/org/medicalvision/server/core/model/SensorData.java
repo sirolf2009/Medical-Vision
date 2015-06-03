@@ -8,6 +8,7 @@ public class SensorData implements Serializable {
 	private int sensorID;
 	private int roomID;
 	private double value;
+	private long timestamp;
 	
 	public SensorData() {}
 
@@ -39,6 +40,14 @@ public class SensorData implements Serializable {
 	public String toString() {
 		return "SensorData [sensorID=" + sensorID + ", roomID=" + roomID
 				+ ", value=" + value + "]";
+	}
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 
 }

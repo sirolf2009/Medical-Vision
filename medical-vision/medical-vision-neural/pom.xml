@@ -24,8 +24,12 @@
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-mllib_2.10</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.medical-vision</groupId>
+			<artifactId>medical-vision-core</artifactId>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
