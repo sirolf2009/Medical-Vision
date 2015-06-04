@@ -121,7 +121,7 @@ public class MVNetworkManager {
 	 * @return NeuralInput
 	 */
 	public NeuralInput getNeuralInput(List<SensorData> data) {
-		JavaRDD<SensorData> rdd = getSparkContext().parallelize(data);
+		JavaRDD<SensorData> rdd = getSparkContext().parallelize(data).cache();
 		
 		JavaPairRDD<Integer, Tuple2<Long, SensorData>> sorted = rdd.mapToPair(new PairFunction<SensorData, Long, SensorData>() {
 			private static final long serialVersionUID = -5219123016459117182L;

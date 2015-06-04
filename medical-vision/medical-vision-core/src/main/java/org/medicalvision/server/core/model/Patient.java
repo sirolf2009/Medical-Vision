@@ -4,6 +4,7 @@ public class Patient {
 
 	private String firstName;
 	private String lastName;
+	private Employee careTaker;
 	
 	public String getFirstName() {
 		return firstName;
@@ -16,6 +17,12 @@ public class Patient {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public Employee getCareTaker() {
+		return careTaker;
+	}
+	public void setCareTaker(Employee careTaker) {
+		this.careTaker = careTaker;
 	}
 	
 }

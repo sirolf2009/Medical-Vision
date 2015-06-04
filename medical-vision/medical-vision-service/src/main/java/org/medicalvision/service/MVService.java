@@ -9,6 +9,7 @@ import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.service.paths.MVRoute;
 import org.medicalvision.service.paths.RouteEmployee;
 import org.medicalvision.service.paths.RoutePatient;
+import org.medicalvision.service.paths.RouteRoom;
 import org.medicalvision.service.paths.RouteSensor;
 import org.medicalvision.service.paths.RouteTask;
 
@@ -18,6 +19,7 @@ import spark.Response;
 
 import com.esotericsoftware.kryonet.Connection;
 import com.google.gson.Gson;
+
 
 public class MVService {
 
@@ -29,21 +31,25 @@ public class MVService {
 	public static RoutePatient patient;
 	public static RouteTask task;
 	public static RouteSensor sensor;
+	public static RouteRoom room;
 
 	public static void main(String[] args) {
 		employee = new RouteEmployee();
 		patient = new RoutePatient();
 		task = new RouteTask();
 		sensor = new RouteSensor();
+		room = new RouteRoom();
 
 		addRoute("/employee", "/add/:firstname/:lastname", employee);
-		addRoute("/patient", "/add/:firstname/:lastname", patient);
+		addRoute("/patient", "/add/:firstname/:lastname/:employeeID", patient);
 		addRoute("/task", "/add/:type/:employeeID/:patientID", task);
 		addRoute("/sensor", "/add/:sensorID/:roomID/:value", sensor);
-
-		get("/employee/add/:firstname/:lastname", (req, res) -> employee.add().handle(req, res));
-		get("/task/add/:type/:employeeID/:patientID", (req, res) -> employee.remove.handle(req, res));
-		get("/sensor/:sensorID/:roomID/:value", (req, res) -> sensor.add().handle(req, res));
+		addRoute("/room", "/add/:roomID/:patientID", room);
+		
+//		get("/employee/add/:firstname/:lastname", (req, res) -> employee.add().handle(req, res));
+//		get("/task/add/:type/:employeeID/:patientID", (req, res) -> employee.remove.handle(req, res));
+//		get("/sensor/:sensorID/:roomID/:value", (req, res) -> sensor.add().handle(req, res));
+		get("/patient/assign/:patientID/:employeeID", RoutePatient.assign);
 		
 		exception(Exception.class, new ExceptionHandler() {
 			@Override

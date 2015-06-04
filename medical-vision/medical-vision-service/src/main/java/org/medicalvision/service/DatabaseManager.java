@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.server.core.model.Patient;
+import org.medicalvision.server.core.model.Room;
 import org.medicalvision.server.core.model.SensorData;
 import org.medicalvision.server.core.model.Task;
 import org.neo4j.graphdb.DynamicLabel;
@@ -27,6 +28,7 @@ public class DatabaseManager {
 	private final Manager<Employee> employeeManager;
 	private final Manager<Patient> patientManager;
 	private final Manager<SensorData> sensorManager;
+	private final Manager<Room> roomManager;
 	
 	private static final Logger log = LoggerFactory.getLogger(DatabaseManager.class.getSimpleName());
 
@@ -43,6 +45,7 @@ public class DatabaseManager {
 		employeeManager = new Manager<Employee>("Employee");
 		patientManager = new Manager<Patient>("Patient");
 		sensorManager = new Manager<SensorData>("SensorData");
+		roomManager = new Manager<Room>("Room");
 	}
 
 	public Manager<Task> getTaskManager() {
@@ -55,6 +58,10 @@ public class DatabaseManager {
 
 	public Manager<Patient> getPatientManager() {
 		return patientManager;
+	}
+
+	public Manager<Room> getRoomManager() {
+		return roomManager;
 	}
 	
 	public GraphDatabaseService getService() {

@@ -23,7 +23,7 @@ public class RouteTask extends MVRoute<Task> {
 				Task task = new Task();
 				task.setType(request.params(":firstname"));
 				task.setEmployee(databaseManager.getEmployeeManager().pull(paramAsLong(request, ":employeeID")));
-				task.setPatient(databaseManager.getPatientManager().pull(paramAsLong(request, ":patientID")));
+				task.setRoom(databaseManager.getRoomManager().pull(paramAsLong(request, ":roomID")));
 				Connection conn = MVService.onlineEmployees.get(databaseManager.getEmployeeManager().pull(paramAsLong(request, ":employeeID")));
 				conn.sendTCP(task);
 				return databaseManager.getTaskManager().push(task);
