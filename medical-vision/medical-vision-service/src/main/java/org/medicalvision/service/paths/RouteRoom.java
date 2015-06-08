@@ -19,7 +19,7 @@ public class RouteRoom extends MVRoute<Room> {
 				Room room = new Room();
 				room.setPatient(MVService.databaseManager.getPatientManager().pull(Util.paramAsLong(request, ":patientID")));
 				room.setRoomID(Util.paramAsInt(request, ":roomID"));
-				return room;
+				return MVService.databaseManager.getRoomManager().push(room);
 			}
 		};
 	}

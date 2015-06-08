@@ -29,8 +29,6 @@ public class DatabaseManager {
 	private final Manager<Patient> patientManager;
 	private final Manager<SensorData> sensorManager;
 	private final Manager<Room> roomManager;
-	
-	private static final Logger log = LoggerFactory.getLogger(DatabaseManager.class.getSimpleName());
 
 	public DatabaseManager() {
 		setService(new GraphDatabaseFactory().newEmbeddedDatabase("neo4j"));
@@ -48,6 +46,15 @@ public class DatabaseManager {
 		roomManager = new Manager<Room>("Room");
 	}
 
+	public Room getRoomFromID(int roomID) {
+		try(Transaction tx = getBeanTx().getService().beginTx()) {
+			System.out.println("searching for room "+roomID);
+			Room room = getRoomManager().pull(getBeanTx().getService().findNode(DynamicLabel.label("Room"), "roomID", roomID).getId());
+			tx.success();
+			return room;
+		}
+	}
+
 	public Manager<Task> getTaskManager() {
 		return taskManager;
 	}
@@ -63,7 +70,7 @@ public class DatabaseManager {
 	public Manager<Room> getRoomManager() {
 		return roomManager;
 	}
-	
+
 	public GraphDatabaseService getService() {
 		return service;
 	}
@@ -86,26 +93,26 @@ public class DatabaseManager {
 
 	@SuppressWarnings("unchecked")
 	public class Manager<E> {
-		
+
 		private String[] labels;
-		
+
 		public Manager(String... labels) {
 			this.labels = labels;
 		}
-		
+
 		public long push(E bean) {
-			log.info("Adding: "+bean);
 			return getBeanTx().pushBean(bean, labels);
 		}
-		
+
 		public E pull(long ID) {
 			return (E) getBeanTx().pullBean(ID);
 		}
-		
+
 		public List<E> all() { //TODO placeholder until beanTx support
 			List<E> objects = new ArrayList<E>();
 			try(Transaction tx = getService().beginTx()) {
-				ResourceIterator<Node> itr = getService().findNodes(DynamicLabel.label(BeanUtil.combineLabels(labels)));
+				String label = BeanUtil.combineLabels(labels);
+				ResourceIterator<Node> itr = getService().findNodes(DynamicLabel.label(label.replace(":", "")));
 				while(itr.hasNext()) {
 					Node node = itr.next();
 					objects.add((E) pull(node.getId()));
@@ -115,18 +122,15 @@ public class DatabaseManager {
 			}
 			return objects;
 		}
-		
-		public void remove(long id) { //TODO placeholder until beanTx support
-			try(Transaction tx = getService().beginTx()) {
-				getService().getNodeById(id).delete();
-				tx.success();
-			}
+
+		public void remove(long id) {
+			getBeanTx().deleteBean(getBeanTx().pullBean(id));
 		}
-		
+
 		public void remove(Object bean) {
 			getBeanTx().deleteBean(bean);
 		}
-		
+
 	}
-	
+
 }

@@ -1,7 +1,10 @@
 package org.medicalvision.server.core.model;
 
-public class Task {
+import java.io.Serializable;
 
+public class Task implements Serializable {
+
+	private static final long serialVersionUID = 6641732900666620295L;
 	private Employee employee;
 	private String type;
 	private Room room;
@@ -27,6 +30,12 @@ public class Task {
 
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+
+	@Override
+	public String toString() {
+		return "Task [employee=" + employee + ", type=" + type + ", room="
+				+ room + "]";
 	}
 	
 }

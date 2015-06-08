@@ -1,7 +1,10 @@
 package org.medicalvision.server.core.model;
 
-public class Patient {
+import java.io.Serializable;
 
+public class Patient implements Serializable {
+
+	private static final long serialVersionUID = 5079700701359275537L;
 	private String firstName;
 	private String lastName;
 	private Employee careTaker;
@@ -23,6 +26,11 @@ public class Patient {
 	}
 	public void setCareTaker(Employee careTaker) {
 		this.careTaker = careTaker;
+	}
+	@Override
+	public String toString() {
+		return "Patient [firstName=" + firstName + ", lastName=" + lastName
+				+ ", careTaker=" + careTaker + "]";
 	}
 	
 }

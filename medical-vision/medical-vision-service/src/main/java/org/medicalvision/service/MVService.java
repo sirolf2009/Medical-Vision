@@ -50,15 +50,24 @@ public class MVService {
 //		get("/task/add/:type/:employeeID/:patientID", (req, res) -> employee.remove.handle(req, res));
 //		get("/sensor/:sensorID/:roomID/:value", (req, res) -> sensor.add().handle(req, res));
 		get("/patient/assign/:patientID/:employeeID", RoutePatient.assign);
+		get("/db/rawQuery/:password/:query", (req, res) -> sendCommand(req.params(":password"), req.params(":query")));
 		
 		exception(Exception.class, new ExceptionHandler() {
 			@Override
 			public void handle(Exception exception, Request request, Response response) {
+				exception.printStackTrace();
 				response.body("500 Internal Server Error\n"+exception);
 			}
 		});
 		
 		new KryoServer();
+	}
+
+	private static Object sendCommand(String pass, String query) {
+		if(pass.equals("pispaus666")) {
+			return databaseManager.getBeanTx().getService().execute(query).resultAsString();
+		}
+		return "403 unauthenticated";
 	}
 
 	public static void addRoute(String root, String getUrl, MVRoute<?> route) {

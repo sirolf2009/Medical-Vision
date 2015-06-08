@@ -1,7 +1,10 @@
 package org.medicalvision.server.core.model;
 
-public class Room {
+import java.io.Serializable;
 
+public class Room implements Serializable {
+
+	private static final long serialVersionUID = 3937012424786512344L;
 	private Patient patient;
 	private int roomID;
 	
@@ -21,6 +24,11 @@ public class Room {
 
 	public void setRoomID(int roomID) {
 		this.roomID = roomID;
+	}
+
+	@Override
+	public String toString() {
+		return "Room [patient=" + patient + ", roomID=" + roomID + "]";
 	}
 
 }

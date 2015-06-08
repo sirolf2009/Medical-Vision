@@ -1,4 +1,4 @@
-package org.medical.vision.neural;
+package org.medicalvision.neural;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class MVNetwork {
 		setHiddenLayerSize(inputSize*2);
 		setIndexes(indexes);
 		
-		topology = Topology.multiLayerPerceptron(new int[] {2, 4, 1}, false);
+		topology = Topology.multiLayerPerceptron(new int[] {getInputSize(), getHiddenLayerSize(), getOutputSize()}, false);
 		FeedForwardModel model = FeedForwardModel.apply(getTopology(), 4567);
 		setInitialWeights(model.weights());
 		
@@ -51,7 +51,7 @@ public class MVNetwork {
 			throw new RuntimeException("The training set is null or empty");
 		}
 		getTrainingSet().cache();
-		FeedForwardTrainer trainer = new FeedForwardTrainer(getTopology(), 2, 1);
+		FeedForwardTrainer trainer = new FeedForwardTrainer(getTopology(), getInputSize(), getOutputSize());
 		trainer.setWeights(getInitialWeights());
 		trainer.LBFGSOptimizer().setNumIterations(getNumIterations());
 		setNeuralNetwork(trainer.train(getTrainingSet()));
