@@ -47,15 +47,7 @@ public enum TaskType {
 		setDescription(description);
 		setLevel(level);
 		setSubTasks(subTasks);
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() 
-			{
-				tasks.put(name, TaskType.this);
-			}
-
-		}).start();
+		new Thread(() -> tasks.put(name, TaskType.this)).start();
 	}
 	
 	private TaskType(String name, String description, TaskLevel level, String subTasks) {
