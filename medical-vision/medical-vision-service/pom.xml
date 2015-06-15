@@ -47,10 +47,6 @@
 			<artifactId>neo4j</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.thrift</groupId>
-			<artifactId>libthrift</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.sparkjava</groupId>
 			<artifactId>spark-core</artifactId>
 		</dependency>
