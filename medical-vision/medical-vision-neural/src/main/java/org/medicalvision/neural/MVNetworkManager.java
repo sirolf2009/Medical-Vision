@@ -11,6 +11,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import org.apache.spark.mllib.linalg.DenseVector;
@@ -36,7 +37,7 @@ public class MVNetworkManager {
 
 	private static final Logger log = LoggerFactory.getLogger(MVNetwork.class.getSimpleName());
 
-	private Map<Double, MVNetwork> networks;
+	private Map<Integer, Map<Double, MVNetwork>> networks;
 
 	public MVNetworkManager() {
 		this(new SparkConf().setMaster("local[4]").setAppName("Medical-Vision ANN").set("SPARK_CONF_DIR", "conf"));
@@ -44,9 +45,11 @@ public class MVNetworkManager {
 
 	public MVNetworkManager(SparkConf conf) {
 		setSparkContext(new JavaSparkContext(conf));
-
-		log.info("Creating initial networks...");
-		networks = new HashMap<Double, MVNetwork>();
+		networks = new HashMap<Integer, Map<Double, MVNetwork>>();
+	}
+	
+	public Map<Double, MVNetwork> createDefaultNetwork() {
+		Map<Double, MVNetwork> networks = new HashMap<Double, MVNetwork>();
 		for(double[] set : defaultTraining) {
 			double[] unparsedInput = Arrays.copyOf(set, set.length-1);
 			List<Integer> indexes = new ArrayList<Integer>();
@@ -90,17 +93,21 @@ public class MVNetworkManager {
 			network.train();
 			networks.put(set[set.length-1], network);
 		}
-		log.info("Inital networks created");
+		return networks;
 	}
 
-	public List<Task> process(List<SensorData> data) {
-		return process(getNeuralInput(data));
+	public List<Task> process(List<SensorData> data, int roomID) {
+		if(networks.get(roomID) == null) {
+			log.info("Creating new network set for room "+roomID);
+			networks.put(roomID, createDefaultNetwork());
+		}
+		return process(getNeuralInput(data, roomID), networks.get(roomID));
 	}
 
-	public List<Task> process(NeuralInput neuralInput) {
+	public List<Task> process(NeuralInput neuralInput, Map<Double, MVNetwork> networks) {
 		List<Task> tasks = new ArrayList<Task>();
 		for(Double emergency : networks.keySet()) {
-			if(feedInto(emergency, neuralInput)) {
+			if(feedInto(emergency, neuralInput, networks)) {
 				log.warn("Emergency found on "+emergency);
 				if(emergency == PANIC) {
 					tasks.add(createTask(TaskType.EMERGENCY_UNKNOWN));
@@ -112,7 +119,7 @@ public class MVNetworkManager {
 		return tasks;
 	}
 
-	private boolean feedInto(Double emergencyNetwork, NeuralInput input) {
+	private boolean feedInto(Double emergencyNetwork, NeuralInput input, Map<Double, MVNetwork> networks) {
 		List<Integer> indexes = networks.get(emergencyNetwork).getIndexes();
 		double[] inputValuesAll = input.toArray();
 		double[] inputValues = new double[indexes.size()];
@@ -136,10 +143,10 @@ public class MVNetworkManager {
 	 * @param data
 	 * @return NeuralInput
 	 */
-	public NeuralInput getNeuralInput(List<SensorData> data) {
+	public NeuralInput getNeuralInput(List<SensorData> data, int roomID) {
 		log.info("Creating neural input");
 		log.info("Creating rdd...");
-		JavaRDD<SensorData> rdd = getSparkContext().parallelize(data).cache().persist(StorageLevel.MEMORY_ONLY());
+		JavaRDD<SensorData> rdd = getSparkContext().parallelize(data).filter(new FilterToRoom(roomID)).cache().persist(StorageLevel.MEMORY_ONLY());
 
 		log.info("Mapping");
 		JavaPairRDD<Integer, Tuple2<Long, SensorData>> sorted = rdd.mapToPair(new MapToTimeSince()).mapToPair(new MapToSensorID());
@@ -250,6 +257,19 @@ public class MVNetworkManager {
 		public Tuple2<Integer, Tuple2<Long, SensorData>> call(Tuple2<Long, SensorData> t) throws Exception {
 			return new Tuple2<Integer, Tuple2<Long,SensorData>>(t._2.getSensorID(), t);
 		}
+	}
+	
+	private static class FilterToRoom implements Function<SensorData, Boolean> {
+		private static final long serialVersionUID = -2418591936613521663L;
+		private final int roomID;
+		public FilterToRoom(int roomID) {
+			this.roomID = roomID;
+		}
+		@Override
+		public Boolean call(SensorData sensorData) throws Exception {
+			return sensorData.getRoomID() == roomID;
+		}
+		
 	}
 
 	private static class FindLatest implements Function2<Tuple2<Long,SensorData>, Tuple2<Long,SensorData>, Tuple2<Long,SensorData>> {

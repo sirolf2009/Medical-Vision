@@ -37,7 +37,7 @@ public class RouteSensor extends MVRoute<SensorData> {
 				data.setValue(paramAsDouble(request, ":value"));
 				data.setTimestamp(System.currentTimeMillis());
 				MVService.databaseManager.getSensorManager().push(data);
-				List<Task> tasks = MVNetworkManager.getInstance().process(MVService.databaseManager.getSensorManager().all());
+				List<Task> tasks = MVNetworkManager.getInstance().process(MVService.databaseManager.getSensorManager().all(), data.getRoomID());
 				tasks.forEach(task -> {
 					task.setRoom(MVService.databaseManager.getRoomFromID(data.getRoomID()));
 					task.setEmployee(task.getRoom().getPatient().getCareTaker());
