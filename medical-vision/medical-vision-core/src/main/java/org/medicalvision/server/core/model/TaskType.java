@@ -43,6 +43,7 @@ public enum TaskType {
 	private static final Map<String, TaskType> tasks = new HashMap<String, TaskType>();
 	
 	private TaskType(final String name, String description, TaskLevel level, SubTask... subTasks) {
+		setName(name);
 		setDescription(description);
 		setLevel(level);
 		setSubTasks(subTasks);
@@ -52,7 +53,7 @@ public enum TaskType {
 			public void run() {
 				tasks.put(name, TaskType.this);
 			}
-		});
+		}).start();
 	}
 	
 	private TaskType(String name, String description, TaskLevel level, String subTasks) {

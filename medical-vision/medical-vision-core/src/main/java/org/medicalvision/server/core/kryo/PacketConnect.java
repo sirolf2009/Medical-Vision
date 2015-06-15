@@ -12,5 +12,9 @@ public class PacketConnect {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+	@Override
+	public String toString() {
+		return "PacketConnect [employee=" + employee + "]";
+	}
 
 }
