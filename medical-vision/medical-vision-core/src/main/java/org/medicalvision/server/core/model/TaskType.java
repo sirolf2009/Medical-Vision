@@ -50,9 +50,11 @@ public enum TaskType {
 		new Thread(new Runnable() {
 			
 			@Override
-			public void run() {
+			public void run() 
+			{
 				tasks.put(name, TaskType.this);
 			}
+
 		}).start();
 	}
 	
