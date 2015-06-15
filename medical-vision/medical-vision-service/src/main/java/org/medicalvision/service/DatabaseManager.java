@@ -14,8 +14,6 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.ResourceIterator;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.sirolf2009.beantx.BeanTx;
 import com.sirolf2009.beantx.BeanUtil;

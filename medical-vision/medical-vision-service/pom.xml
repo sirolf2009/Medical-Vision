@@ -68,6 +68,10 @@
 			<groupId>org.medicalvision</groupId>
 			<artifactId>medical-vision-neural</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.sparkjava</groupId>
+			<artifactId>spark-template-velocity</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

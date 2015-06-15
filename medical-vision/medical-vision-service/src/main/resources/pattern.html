@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$patient.firstName $patient.lastName's patterns</title>
+</head>
+<body>
+	<script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: "Top Oil Reserves"
+      },
+      data: [
+
+      {
+        dataPoints: [
+        { x: 10, y: 297571, label: "Venezuela"},
+        { x: 20, y: 267017,  label: "Saudi" },
+        { x: 30, y: 175200,  label: "Canada"},
+        { x: 40, y: 154580,  label: "Iran"},
+        { x: 50, y: 116000,  label: "Russia"},
+        { x: 60, y: 97800, label: "UAE"},
+        { x: 70, y: 20682,  label: "US"},
+        { x: 80, y: 20350,  label: "China"}
+        ]
+      }
+      ]
+    });
+
+    chart.render();
+  }
+  </script>
+  <script type="text/javascript" src="canvasjs.min.js"></script></head>
+  <body>
+   <div id="chartContainer" style="height: 300px; width: 100%;">
+   </div>
+   <span>$networks.get[1].toString()</span>
+</body>
+</html>

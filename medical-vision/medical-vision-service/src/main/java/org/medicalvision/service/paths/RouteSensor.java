@@ -39,19 +39,21 @@ public class RouteSensor extends MVRoute<SensorData> {
 				MVService.databaseManager.getSensorManager().push(data);
 				List<Task> tasks = MVNetworkManager.getInstance().process(MVService.databaseManager.getSensorManager().all(), data.getRoomID());
 				tasks.forEach(task -> {
+					System.out.println("Handling emergency "+task);
 					task.setRoom(MVService.databaseManager.getRoomFromID(data.getRoomID()));
 					task.setEmployee(task.getRoom().getPatient().getCareTaker());
 					Employee assignee = null;
 					if(MVService.onlineEmployees.containsKey(task.getEmployee())) {
 						assignee = task.getEmployee();
-					} else if(MVService.onlineEmployees.size() > 1) { // Pick random assigne
+					} else if(MVService.onlineEmployees.size() >= 1) { // Pick random assignee
 						assignee = MVService.onlineEmployees.values().toArray(new Employee[MVService.onlineEmployees.size()])[new Random().nextInt(MVService.onlineEmployees.size())];
 					} else {
 						System.err.println("No employees online for Task "+task);
 					}
 					if (assignee != null) {
-						Connection conn = MVService.onlineEmployees.get(task.getEmployee());
+						Connection conn = MVService.onlineEmployees.get(assignee);
 						conn.sendTCP(task);
+						System.out.println(task+" send to connection "+conn);
 					}
 						
 				});

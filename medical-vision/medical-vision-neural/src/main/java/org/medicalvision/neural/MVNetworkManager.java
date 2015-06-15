@@ -37,7 +37,7 @@ public class MVNetworkManager {
 
 	private static final Logger log = LoggerFactory.getLogger(MVNetwork.class.getSimpleName());
 
-	private Map<Integer, Map<Double, MVNetwork>> networks;
+	private final Map<Integer, Map<Double, MVNetwork>> networks;
 
 	public MVNetworkManager() {
 		this(new SparkConf().setMaster("local[4]").setAppName("Medical-Vision ANN").set("SPARK_CONF_DIR", "conf"));
@@ -286,5 +286,9 @@ public class MVNetworkManager {
 		public Tuple2<Integer, Long> call(Tuple2<Integer, Tuple2<Long, SensorData>> t) throws Exception {
 			return new Tuple2<Integer, Long>(t._1, t._2._1);
 		}
+	}
+
+	public Map<Integer, Map<Double, MVNetwork>> getNetworks() {
+		return networks;
 	}
 }

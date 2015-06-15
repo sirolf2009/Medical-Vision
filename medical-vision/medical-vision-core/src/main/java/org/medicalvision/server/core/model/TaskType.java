@@ -99,7 +99,7 @@ public enum TaskType {
 	
 	@Override
 	public String toString() {
-		return "kanker";
+		return name;
 	}
 
 	public String getName() {

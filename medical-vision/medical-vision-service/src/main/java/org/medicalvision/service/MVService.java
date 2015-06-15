@@ -1,16 +1,16 @@
 package org.medicalvision.service;
+import static org.medicalvision.service.Util.file;
+import static org.medicalvision.service.Util.fileVelocity;
 import static spark.Spark.exception;
 import static spark.Spark.get;
+import static spark.SparkBase.staticFileLocation;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.medicalvision.server.core.kryo.PacketConnect;
+import org.medicalvision.neural.MVNetworkManager;
 import org.medicalvision.server.core.model.Employee;
-import org.medicalvision.server.core.model.Task;
+import org.medicalvision.server.core.model.Patient;
 import org.medicalvision.service.paths.MVRoute;
 import org.medicalvision.service.paths.RouteEmployee;
 import org.medicalvision.service.paths.RoutePatient;
@@ -21,12 +21,9 @@ import org.medicalvision.service.paths.RouteTask;
 import spark.ExceptionHandler;
 import spark.Request;
 import spark.Response;
+import spark.template.velocity.VelocityTemplateEngine;
 
-import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
-import com.esotericsoftware.kryonet.FrameworkMessage.KeepAlive;
-import com.esotericsoftware.kryonet.Listener;
-import com.esotericsoftware.kryonet.Server;
 import com.google.gson.Gson;
 
 
@@ -48,6 +45,8 @@ public class MVService {
 		task = new RouteTask();
 		sensor = new RouteSensor();
 		room = new RouteRoom();
+		
+		staticFileLocation("/assets");
 
 		addRoute("/employee", "/add/:firstname/:lastname", employee);
 		addRoute("/patient", "/add/:firstname/:lastname/:employeeID", patient);
@@ -68,6 +67,9 @@ public class MVService {
 				response.body("500 Internal Server Error\n"+exception);
 			}
 		});
+
+		get("/", (req, res) -> file("index.html"));
+		get("/pattern", (req, res) -> fileVelocity("pattern.html", "patient", new Patient("Floris", "Thijssen"), "networks", MVNetworkManager.getInstance().getNetworks().get(0)), new VelocityTemplateEngine());
 
 		new KryoServer();
 	}

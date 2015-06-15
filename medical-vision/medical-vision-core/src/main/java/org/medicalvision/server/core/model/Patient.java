@@ -9,6 +9,19 @@ public class Patient implements Serializable {
 	private String lastName;
 	private Employee careTaker;
 	
+	public Patient(String firstName, String lastName, Employee careTaker) {
+		this(firstName, lastName);
+		setCareTaker(careTaker);
+	}
+	
+	public Patient(String firstName, String lastName) {
+		setFirstName(firstName);
+		setLastName(lastName);
+	}
+	
+	public Patient() {
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
