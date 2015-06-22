@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.medicalvision.server.core.kryo.PacketConnect;
+import org.medicalvision.server.core.model.EmergencyResult;
 import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.server.core.model.Patient;
 import org.medicalvision.server.core.model.Room;
@@ -34,6 +35,7 @@ public class KryoServer {
 		server.getKryo().register(Patient.class);
 		server.getKryo().register(Task.class);
 		server.getKryo().register(TaskType.class);
+		server.getKryo().register(EmergencyResult.class);
 		server.addListener(new Listener() {
 			
 			@Override
@@ -41,7 +43,7 @@ public class KryoServer {
 				if(!(object instanceof KeepAlive)) {
 					System.out.println(object);
 				}
-				if (object instanceof PacketConnect) {
+				if(object instanceof PacketConnect) {
 					PacketConnect connect = (PacketConnect) object;
 					MVService.onlineEmployees.put(connect.getEmployee(), connection);
 					System.out.println(MVService.onlineEmployees);
@@ -69,6 +71,9 @@ public class KryoServer {
 					connection.sendTCP(task);
 					task.setType(TaskType.SERVE_BREAKFAST.toString());
 					connection.sendTCP(task);
+				}
+				if(object instanceof EmergencyResult) {
+					//TODO
 				}
 			}
 			
