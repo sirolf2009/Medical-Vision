@@ -27,11 +27,7 @@ public enum TaskType {
 	SERVE_MEAL("Maaltijd", "Serveer maaltijd", HIGH, "Fuck,Off"),
 	
 	EMERGENCY_UNKNOWN("Onbekend", "Onbekend noodgeval", CRITICAL, "Fuck,Off"),
-	EMERGENCY_PISSED_IN_BED("Bedplasser", "Ruim incontinentie materiaal op", CRITICAL, "Fuck,Off"),
 	EMERGENCY_PERSON_WANDERING("Dwalende_zorgvrager", "Begeleid zorgvrager", CRITICAL, "Fuck,Off"),
-	EMERGENCY_HIGH_HARTRATE("Hoog_hartslag", "Verhoogd hartslag", CRITICAL, "Fuck,Off"),
-	EMERGENCY_LOW_HARTRATE("Laag_hartslag", "Verlaagd hartslag", CRITICAL, "Fuck,Off"),
-	EMERGENCY_FALLEN_CLIENT("Vallende_zorgvrager", "Een zorgvrager is gevallen", CRITICAL, "Fuck,Off"),
 	
 	OTHER("Onbekend", "Onbekend", UNKNOWN, "Fuck,Off");
 

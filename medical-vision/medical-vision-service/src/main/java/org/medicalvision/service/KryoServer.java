@@ -48,25 +48,26 @@ public class KryoServer {
 					
 					Task task = new Task();
 					task.setEmployee(connect.getEmployee());
-					Room room = new Room();
-					Patient patient = new Patient();
-					patient.setFirstName("Floris");
-					patient.setLastName("Thijssen");
-					patient.setCareTaker(connect.getEmployee());
-					room.setPatient(patient);
-					room.setRoomID(0);
-					task.setRoom(room);
-					task.setType(TaskType.EMERGENCY_UNKNOWN.getName());
+					Room room1 = MVService.databaseManager.getRoomFromID(3);
+					task.setRoom(room1);
+					task.setType(TaskType.AID_DOUCHE.toString());
 					connection.sendTCP(task);
-					task.setType(TaskType.AID_DOUCHE.getName());
+					task.setType(TaskType.AID_DRESS.toString());
 					connection.sendTCP(task);
-					task.setType(TaskType.CLEAN_BED.getName());
+					task.setType(TaskType.SERVE_COFFEE.toString());
 					connection.sendTCP(task);
-					task.setType(TaskType.EMERGENCY_HIGH_HARTRATE.getName());
+					task.setType(TaskType.SERVE_BREAKFAST.toString());
 					connection.sendTCP(task);
-					task.setType(TaskType.SERVE_MEDICINE.getName());
+					
+					Room room2 = MVService.databaseManager.getRoomFromID(2);
+					task.setRoom(room2);
+					task.setType(TaskType.AID_DOUCHE.toString());
 					connection.sendTCP(task);
-					task.setType(TaskType.OTHER.getName());
+					task.setType(TaskType.AID_DRESS.toString());
+					connection.sendTCP(task);
+					task.setType(TaskType.SERVE_COFFEE.toString());
+					connection.sendTCP(task);
+					task.setType(TaskType.SERVE_BREAKFAST.toString());
 					connection.sendTCP(task);
 				}
 			}

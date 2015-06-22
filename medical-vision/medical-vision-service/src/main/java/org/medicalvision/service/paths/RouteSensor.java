@@ -35,6 +35,10 @@ public class RouteSensor extends MVRoute<SensorData> {
 				data.setSensorID(paramAsInt(request, ":sensorID"));
 				data.setRoomID(paramAsInt(request, ":roomID"));
 				data.setValue(paramAsDouble(request, ":value"));
+				SensorData original = new SensorData(data);
+				if(data.getSensorID() == 6 || data.getSensorID() == 7) {
+					data.setValue(data.getValue() < 200 ? 0 : 1);
+				}
 				data.setTimestamp(System.currentTimeMillis());
 				MVService.databaseManager.getSensorManager().push(data);
 				List<Task> tasks = MVNetworkManager.getInstance().process(MVService.databaseManager.getSensorManager().all(), data.getRoomID());
@@ -57,7 +61,7 @@ public class RouteSensor extends MVRoute<SensorData> {
 					}
 						
 				});
-				return data;
+				return original;
 			}
 		};
 	}

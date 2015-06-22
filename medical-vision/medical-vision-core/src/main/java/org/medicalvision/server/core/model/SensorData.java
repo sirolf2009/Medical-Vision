@@ -11,6 +11,13 @@ public class SensorData implements Serializable {
 	private long timestamp;
 	
 	public SensorData() {}
+	
+	public SensorData(SensorData data) {
+		setSensorID(data.getSensorID());
+		setRoomID(data.getRoomID());
+		setValue(value);
+		setTimestamp(timestamp);
+	}
 
 	public int getSensorID() {
 		return sensorID;

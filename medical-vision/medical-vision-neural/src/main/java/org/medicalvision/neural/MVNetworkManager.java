@@ -134,7 +134,7 @@ public class MVNetworkManager {
 
 	private Task createTask(TaskType type) {
 		Task task = new Task();
-		task.setType(type.name());
+		task.setType(type.toString());
 		return task;
 	}
 
@@ -217,6 +217,7 @@ public class MVNetworkManager {
 	private static final double[][] defaultTraining = new double[][] {
 		//				TOD		motion1		motion1'	motion2		motion2'	infra1	infra1'	infra2	infra2'	door1	door1'	door2	door2'	light1	light1'	light2	light2'	panic	result
 		new double[] {	-1,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		1,		PANIC},
+		new double[] {	0,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		0,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		WANDERER},
 		new double[] {	0,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		0,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		WANDERER}
 	};
 
@@ -247,7 +248,7 @@ public class MVNetworkManager {
 		private static final long serialVersionUID = 1927885537362892555L;
 		@Override
 		public Tuple2<Long, SensorData> call(SensorData t) throws Exception {
-			return new Tuple2<Long, SensorData>(100-t.getTimestamp(), t);
+			return new Tuple2<Long, SensorData>(((System.currentTimeMillis()-t.getTimestamp())/1000/60)/1440, t);
 		}
 	}
 
