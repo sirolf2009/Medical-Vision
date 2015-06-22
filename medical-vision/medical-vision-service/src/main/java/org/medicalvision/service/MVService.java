@@ -11,6 +11,7 @@ import java.util.Map;
 import org.medicalvision.neural.MVNetworkManager;
 import org.medicalvision.server.core.model.Employee;
 import org.medicalvision.server.core.model.Patient;
+import org.medicalvision.server.core.model.Task;
 import org.medicalvision.service.paths.MVRoute;
 import org.medicalvision.service.paths.RouteEmployee;
 import org.medicalvision.service.paths.RoutePatient;
@@ -30,6 +31,7 @@ import com.google.gson.Gson;
 public class MVService {
 
 	public static final Map<Employee, Connection> onlineEmployees = new HashMap<Employee, Connection>();
+	public static final Map<Long, Task> emergencies = new HashMap<Long, Task>();
 	public static final DatabaseManager databaseManager = new DatabaseManager();
 	public static final Gson gson = new Gson();
 

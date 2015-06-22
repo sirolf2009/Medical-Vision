@@ -46,6 +46,7 @@ public class RouteSensor extends MVRoute<SensorData> {
 					System.out.println("Handling emergency "+task);
 					task.setRoom(MVService.databaseManager.getRoomFromID(data.getRoomID()));
 					task.setEmployee(task.getRoom().getPatient().getCareTaker());
+					task.setID(addTaskToIndex(task));
 					Employee assignee = null;
 					if(MVService.onlineEmployees.containsKey(task.getEmployee())) {
 						assignee = task.getEmployee();
@@ -64,6 +65,15 @@ public class RouteSensor extends MVRoute<SensorData> {
 				return original;
 			}
 		};
+	}
+	
+	public long addTaskToIndex(Task task) {
+		long ID = new Random().nextLong();
+		if(MVService.emergencies.containsKey(ID)) {
+			return addTaskToIndex(task);
+		}
+		MVService.emergencies.put(ID, task);
+		return ID;
 	}
 	
 	@Override

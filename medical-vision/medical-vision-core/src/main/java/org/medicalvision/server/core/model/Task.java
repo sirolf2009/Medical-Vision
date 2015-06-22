@@ -8,6 +8,7 @@ public class Task implements Serializable {
 	private Employee employee;
 	private String type;
 	private Room room;
+	private long ID;
 	
 	public Task() {}
 	
@@ -36,6 +37,14 @@ public class Task implements Serializable {
 	public String toString() {
 		return "Task [employee=" + employee + ", type=" + type + ", room="
 				+ room + "]";
+	}
+
+	public long getID() {
+		return ID;
+	}
+
+	public void setID(long ID) {
+		this.ID = ID;
 	}
 	
 }
