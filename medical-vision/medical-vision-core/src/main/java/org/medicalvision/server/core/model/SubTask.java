@@ -11,6 +11,11 @@ public class SubTask {
 		setDescription(description);
 	}
 
+	@Override
+	public String toString() {
+		return description;
+	}
+
 	public String getDescription() {
 		return description;
 	}
