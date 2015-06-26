@@ -38,7 +38,6 @@ public class Employee implements Serializable {
 		int result = 1;
 		result = prime * result
 				+ ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result
 				+ ((lastName == null) ? 0 : lastName.hashCode());
 		return result;
@@ -56,8 +55,6 @@ public class Employee implements Serializable {
 			if (other.firstName != null)
 				return false;
 		} else if (!firstName.equals(other.firstName))
-			return false;
-		if (id != other.id)
 			return false;
 		if (lastName == null) {
 			if (other.lastName != null)

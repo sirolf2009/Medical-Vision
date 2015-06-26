@@ -34,6 +34,7 @@ public class MVNetworkManager {
 
 	public static final double PANIC = 1;
 	public static final double WANDERER = 2;
+	public static final double DEATH = 3;
 
 	private static final Logger log = LoggerFactory.getLogger(MVNetwork.class.getSimpleName());
 
@@ -70,6 +71,8 @@ public class MVNetworkManager {
 				options = doubleInput;
 			} else if(indexes.size() == 3) {
 				options = tripleInput;
+			} else if(indexes.size() == 4) {
+				options = fourInput;
 			} else {
 				throw new RuntimeException(set[set.length-1]+" has an invalid amount of options: "+indexes.size());
 			}
@@ -113,6 +116,8 @@ public class MVNetworkManager {
 					tasks.add(createTask(TaskType.EMERGENCY_UNKNOWN));
 				} else if(emergency == WANDERER) {
 					tasks.add(createTask(TaskType.EMERGENCY_PERSON_WANDERING));
+				} else if(emergency == DEATH) {
+					tasks.add(createTask(TaskType.EMERGENCY_FALLEN_CLIENT));
 				}
 			}
 		}
@@ -178,6 +183,8 @@ public class MVNetworkManager {
 		input.setLight2(getLatest(latest, 7));
 		input.setLight2TSLS(getTSLS(TSLS, 7));
 		input.setPanic(getLatest(latest, 8));
+		input.setTSLMSmallerThanTSLD_LivingRoom(input.getMotion1TSLS() < input.getDoor1TSLS() ? 1 : 0);
+		input.setTSLMSmallerThanTSLD_BathRoom(input.getMotion2TSLS() < input.getDoor2TSLS() ? 1 : 0);
 		int HOD = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		input.setTOD(HOD > 8 && HOD < 20 ? 1 : 0);
 		return input;
@@ -215,10 +222,11 @@ public class MVNetworkManager {
 	}
 
 	private static final double[][] defaultTraining = new double[][] {
-		//				TOD		motion1		motion1'	motion2		motion2'	infra1	infra1'	infra2	infra2'	door1	door1'	door2	door2'	light1	light1'	light2	light2'	panic	result
-		new double[] {	-1,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		1,		PANIC},
-		new double[] {	0,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		0,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		WANDERER},
-		new double[] {	0,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		0,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		WANDERER}
+		//				TOD		motion1		motion1'	motion2		motion2'	infra1	infra1'	infra2	infra2'	door1	door1'	door2	door2'	light1	light1'	light2	light2'	panic	TSLM<D_L	TSLM<D_B	result
+		new double[] {	-1,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		1,		-1,			-1,			PANIC},
+		new double[] {	-1,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		1,		-1,		-1,		-1,		0,		-1,		-1,		-1,		-1,		-1,			-1,			WANDERER},
+		new double[] {	-1,		-1,			-1,			-1,			-1,			-1,		-1,		-1,		-1,		1,		-1,		-1,		-1,		0,		-1,		-1,		-1,		-1,		-1,			-1,			WANDERER}
+		//new double[] {	-1,		-1,			-1,			-1,			-1,			1,		-1,		-1,		-1,		1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		1,			0,			DEATH}
 	};
 
 	private static final double[][] singleInput = new double[][] {
@@ -242,6 +250,25 @@ public class MVNetworkManager {
 		new double[] {1, 0, 1},
 		new double[] {1, 1, 0},
 		new double[] {1, 1, 1}
+	};
+
+	private static final double[][] fourInput = new double[][] {
+		new double[] {0, 0, 0, 0},
+		new double[] {0, 0, 0, 1},
+		new double[] {0, 0, 1, 0},
+		new double[] {0, 0, 1, 1},
+		new double[] {0, 1, 0, 0},
+		new double[] {0, 1, 0, 1},
+		new double[] {0, 1, 1, 0},
+		new double[] {0, 1, 1, 1},
+		new double[] {1, 0, 0, 0},
+		new double[] {1, 0, 0, 1},
+		new double[] {1, 0, 1, 0},
+		new double[] {1, 0, 1, 1},
+		new double[] {1, 1, 0, 0},
+		new double[] {1, 1, 0, 1},
+		new double[] {1, 1, 1, 0},
+		new double[] {1, 1, 1, 1},
 	};
 
 	private static class MapToTimeSince implements PairFunction<SensorData, Long, SensorData> {

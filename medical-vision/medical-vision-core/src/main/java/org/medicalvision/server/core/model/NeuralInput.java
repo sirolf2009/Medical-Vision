@@ -27,12 +27,14 @@ public class NeuralInput {
 	private double light2;
 	private long light2TSLS;
 	private double panic;
+	private double TSLMSmallerThanTSLD_LivingRoom;
+	private double TSLMSmallerThanTSLD_BathRoom;
 	
 	public NeuralInput() {
 	}
 	
 	public double[] toArray() {
-		return new double[] {TOD, motion1, motion1TSLS, motion2, motion2TSLS, infra1, infra1TSLS, infra2, infra2TSLS, door1, door1TSLS, door2, door2TSLS, light1, light1TSLS, light2, light2TSLS, panic};
+		return new double[] {TOD, motion1, motion1TSLS, motion2, motion2TSLS, infra1, infra1TSLS, infra2, infra2TSLS, door1, door1TSLS, door2, door2TSLS, light1, light1TSLS, light2, light2TSLS, panic, TSLMSmallerThanTSLD_LivingRoom, TSLMSmallerThanTSLD_BathRoom};
 	}
 
 	public double getTOD() {
@@ -177,6 +179,23 @@ public class NeuralInput {
 
 	public void setPanic(double panic) {
 		this.panic = panic;
+	}
+
+	public double getTSLMSmallerThanTSLD_LivingRoom() {
+		return TSLMSmallerThanTSLD_LivingRoom;
+	}
+
+	public void setTSLMSmallerThanTSLD_LivingRoom(
+			double tSLMSmallerThanTSLD_LivingRoom) {
+		TSLMSmallerThanTSLD_LivingRoom = tSLMSmallerThanTSLD_LivingRoom;
+	}
+
+	public double getTSLMSmallerThanTSLD_BathRoom() {
+		return TSLMSmallerThanTSLD_BathRoom;
+	}
+
+	public void setTSLMSmallerThanTSLD_BathRoom(double tSLMSmallerThanTSLD_BathRoom) {
+		TSLMSmallerThanTSLD_BathRoom = tSLMSmallerThanTSLD_BathRoom;
 	}
 
 }

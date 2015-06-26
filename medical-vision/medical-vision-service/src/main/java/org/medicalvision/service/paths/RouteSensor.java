@@ -36,8 +36,11 @@ public class RouteSensor extends MVRoute<SensorData> {
 				data.setRoomID(paramAsInt(request, ":roomID"));
 				data.setValue(paramAsDouble(request, ":value"));
 				SensorData original = new SensorData(data);
-				if(data.getSensorID() == 6 || data.getSensorID() == 7) {
-					data.setValue(data.getValue() < 200 ? 0 : 1);
+				if(data.getSensorID() == 6) {
+					data.setValue(data.getValue() < 380 ? 0 : 1);
+				}
+				if(data.getSensorID() == 7) {
+					data.setValue(data.getValue() < 100 ? 0 : 1);
 				}
 				data.setTimestamp(System.currentTimeMillis());
 				MVService.databaseManager.getSensorManager().push(data);
@@ -46,7 +49,6 @@ public class RouteSensor extends MVRoute<SensorData> {
 					System.out.println("Handling emergency "+task);
 					task.setRoom(MVService.databaseManager.getRoomFromID(data.getRoomID()));
 					task.setEmployee(task.getRoom().getPatient().getCareTaker());
-					task.setID(addTaskToIndex(task));
 					Employee assignee = null;
 					if(MVService.onlineEmployees.containsKey(task.getEmployee())) {
 						assignee = task.getEmployee();
@@ -56,6 +58,10 @@ public class RouteSensor extends MVRoute<SensorData> {
 						System.err.println("No employees online for Task "+task);
 					}
 					if (assignee != null) {
+						if(MVService.emergencies.containsValue(task)) {
+							return;
+						}
+						task.setID(addTaskToIndex(task));
 						Connection conn = MVService.onlineEmployees.get(assignee);
 						conn.sendTCP(task);
 						System.out.println(task+" send to connection "+conn);

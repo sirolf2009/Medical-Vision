@@ -73,7 +73,8 @@ public class KryoServer {
 					connection.sendTCP(task);
 				}
 				if(object instanceof EmergencyResult) {
-					//TODO
+					MVService.emergencies.remove(((EmergencyResult)object).getID());
+					System.out.println(MVService.emergencies);
 				}
 			}
 			
@@ -87,6 +88,15 @@ public class KryoServer {
 				}
 				for(Employee employee : dirty) {
 					MVService.onlineEmployees.remove(employee);
+					List<Long> dirtyTasks = new ArrayList<Long>();
+					for(Entry<Long, Task> task : MVService.emergencies.entrySet()) {
+						if(task.getValue().getEmployee().equals(employee)) {
+							dirtyTasks.add(task.getKey());
+						}
+					}
+					for(Long task : dirtyTasks) {
+						MVService.emergencies.remove(task);
+					}
 					System.out.println(MVService.onlineEmployees);
 				}
 			}
